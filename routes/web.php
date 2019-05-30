@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('frontend/master');
+Route::get('/dashboard', function () {
+    return view('frontend/dashboard');
 });
 
 Auth::routes();
