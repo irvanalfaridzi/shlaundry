@@ -103,10 +103,59 @@
             <ul class="navbar-nav mb-md-3">
                 <li class="nav-item">
                     <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
-                        <i class="ni ni-spaceship"></i> Getting started
+                        <i class="ni ni-spaceship text-red"></i> Customers
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
+                        <i class="ni ni-badge text-green"></i> Suppliers
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
+                        <i class="ni ni-circle-08 text-pink"></i> Users
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
+                        <i class="ni ni-app text-red"></i> Products
                     </a>
                 </li>
             </ul>
+            <!-- Divider -->
+            <hr class="my-3">
+            <!-- Heading -->
+            <h6 class="navbar-heading text-muted">Transaction</h6>
+            <!-- Navigation -->
+            <ul class="navbar-nav mb-md-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
+                        <i class="ni ni-cart text-primary"></i> Sales
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
+                        <i class="ni ni-bag-17 text-danger"></i> Purchases
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Divider -->
+            <hr class="my-3">
+            <!-- Navigation -->
+            <ul class="navbar-nav mb-md-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
+                        <i class="ni ni-single-copy-04 text-primary"></i> Reports
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
+                        <i class="ni ni-user-run text-green"></i> Logout
+                    </a>
+                </li>
+            </ul>
+
         </div>
     </div>
 </nav>
