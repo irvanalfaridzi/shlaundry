@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+  <title>Shoes Cleanerz</title>
   @include('frontend.include._header-script')
 </head>
 
@@ -23,9 +23,12 @@
       <div class="container-fluid">
         <div class="header-body">
           <!-- Content -->
-          @yield('content')
+          @yield('content-head')
         </div>
       </div>
+    </div>
+    <div class="container-fluid mt--7">
+        @yield('content-body')
     </div>
   </div>
   @include('frontend.include._footer-script')
