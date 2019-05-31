@@ -6,7 +6,7 @@
         <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Brand -->
-        <a class="navbar-brand pt-0" href="./index.html">
+        <a class="navbar-brand pt-0" href="/dashboard">
             <h1 class="text-primary font-weight-bold">SHCleanerz</h1>
         </a>
         <!-- User -->
@@ -90,7 +90,7 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.html">
+                    <a class="nav-link" href="/dashboard">
                         <i class="ni ni-tv-2 text-primary"></i> Dashboard
                     </a>
                 </li>
@@ -102,12 +102,12 @@
             <!-- Navigation -->
             <ul class="navbar-nav mb-md-3">
                 <li class="nav-item">
-                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
+                    <a class="nav-link" href="{{ route('frontend.customer.index')}}">
                         <i class="ni ni-spaceship text-red"></i> Customers
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
+                    <a class="nav-link" href="{{ route('frontend.supplier.index')}}">
                         <i class="ni ni-badge text-green"></i> Suppliers
                     </a>
                 </li>
