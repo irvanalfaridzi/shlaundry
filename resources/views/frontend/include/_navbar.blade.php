@@ -22,7 +22,7 @@
                 <img alt="Image placeholder" src="{{ asset('assets/argon/img/theme/team-4-800x800.jpg')}}">
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
-                <span class="mb-0 text-sm  font-weight-bold">Admin</span>
+                <span class="mb-0 text-sm  font-weight-bold">{{ Auth::user()->name }}</span>
                 </div>
             </div>
             </a>
@@ -47,10 +47,13 @@
                 <span>Support</span>
             </a>
             <div class="dropdown-divider"></div>
-            <a href="#!" class="dropdown-item">
-                <i class="ni ni-user-run"></i>
-                <span>Logout</span>
+            <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();"> <i class="ni ni-user-run"></i>
+                {{ __('Logout') }} 
             </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
             </div>
         </li>
         </ul>
