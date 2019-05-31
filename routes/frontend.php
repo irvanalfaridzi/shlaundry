@@ -1,9 +1,10 @@
 <?php
 
-Route::namespace('Frontend')->group(function () {
+Route::name('frontend.')->group(function () {
     Route::group([
   
       'middleware'    => 'auth',
+      'namespace'          => 'Frontend'
   
     ], function () {
   
