@@ -7,7 +7,7 @@
         </button>
         <!-- Brand -->
         <a class="navbar-brand pt-0" href="./index.html">
-        <img src="{{ asset('assets/argon/img/brand/blue.png')}}" class="navbar-brand-img" alt="...">
+            <h1 class="text-primary font-weight-bold">SHCleanerz</h1>
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
@@ -113,12 +113,17 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
-                        <i class="ni ni-circle-08 text-pink"></i> Users
+                        <i class="ni ni-app text-red"></i> Products
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
-                        <i class="ni ni-app text-red"></i> Products
+                        <i class="ni ni-briefcase-24 text-yellow"></i> Services
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
+                        <i class="ni ni-circle-08 text-pink"></i> Users / Employees
                     </a>
                 </li>
             </ul>
@@ -136,6 +141,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
                         <i class="ni ni-bag-17 text-danger"></i> Purchases
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
+                        <i class="ni ni-planet text-green"></i> Appoinment
                     </a>
                 </li>
             </ul>
