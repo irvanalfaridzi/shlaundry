@@ -24,7 +24,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('frontend.supplier.create');
+        return view('frontend.customer.create');
     }
 
     /**
