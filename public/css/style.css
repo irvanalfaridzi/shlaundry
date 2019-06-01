@@ -1,0 +1,9 @@
+.page-item .page-link,
+.page-item span
+{
+    width:45px;
+    border-radius:6px !important;  
+    margin-top:10px;
+    font-size: 10px;  
+    padding: 0 22px;    
+}
