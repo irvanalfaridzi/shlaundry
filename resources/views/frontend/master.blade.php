@@ -29,6 +29,7 @@
     </div>
     <div class="container-fluid mt--7">
         @yield('content-body')
+        @include('frontend.include._footer')
     </div>
   </div>
   @include('frontend.include._footer-script')
