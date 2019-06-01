@@ -25,6 +25,7 @@
                         <th>Full Name</th>
                         <th>Gender</th>
                         <th>Phone Number</th>
+                        <th>Country</th>
                         <th>City</th>
                         <th>Postal Code</th>
                         <th>Address</th>
@@ -36,6 +37,7 @@
                         <td>Ibnu Pratama Adi Saputra</td>
                         <td>Man</td>
                         <td>08123231232</td>
+                        <td>Indonesia</td>
                         <td>Surabaya</td>
                         <td>61232</td>
                         <td>Jl. Kedung Klinter 7/20</td>
@@ -46,7 +48,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                     <a class="dropdown-item" href="#">Edit</a>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-notification">Delete</a>
+                                    <a class="dropdown-item" data-toggle="modal" data-target="#modal-notification">Delete</a>
                                 </div>
                             </div>
                         </td>
