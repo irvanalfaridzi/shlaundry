@@ -33,29 +33,59 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($customers as $customer)
                     <tr>
-                        <td>Ibnu Pratama Adi Saputra</td>
-                        <td>Man</td>
-                        <td>08123231232</td>
-                        <td>Indonesia</td>
-                        <td>Surabaya</td>
-                        <td>61232</td>
-                        <td>Jl. Kedung Klinter 7/20</td>
+                        <td>{{ $customer->firstname }} {{$customer->lastname}}</td>
+                        <td>{{ $customer->gender }}</td>
+                        <td>{{ $customer->phone }}</td>
+                        <td>{{ $customer->country }}</td>
+                        <td>{{ $customer->city }}</td>
+                        <td>{{ $customer->postalcode }}</td>
+                        <td>{{ $customer->address }}</td>
                         <td class="text-right">
                             <div class="dropdown">
                                 <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                   <i class="fas fa-ellipsis-v"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                    <a class="dropdown-item" href="#">Edit</a>
+                                    <a class="dropdown-item" href="{{ route('frontend.customer.edit',[$customer->id])}}">Edit</a>
                                     <a class="dropdown-item" data-toggle="modal" data-target="#modal-notification">Delete</a>
                                 </div>
                             </div>
                         </td>
-                        @component('frontend.common.modal.modal-delete')
-                          @slot('action', '{{route("customer.destroy","4")}}')
-                        @endcomponent 
+                        <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+                            <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+                                <div class="modal-content bg-gradient-danger">
+                                    
+                                    <div class="modal-header">
+                                        <h6 class="modal-title" id="modal-title-notification">Your attention is required</h6>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="modal-body">
+                                        <div class="py-3 text-center">
+                                            <i class="ni ni-bell-55 ni-3x"></i>
+                                            <h4 class="heading mt-4">You should read this!</h4>
+                                            <p>when you delete your data, you will get a lost your data</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="modal-footer">
+                                        <form action="{{ route('frontend.customer.destroy',[$customer->id])}}" method="POST">
+                                            <input type="hidden" name="_method" value="Delete">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <input type="submit" class="btn btn-white" value="Ok, Got it">
+                                        </form>
+                                        <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Close</button> 
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

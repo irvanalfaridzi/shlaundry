@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
 
 class CustomerController extends Controller
 {
@@ -14,7 +15,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return view('frontend.customer.index');
+        $customers = Customer::all();
+        return view('frontend.customer.index',['customers' => $customers]);
     }
 
     /**
@@ -35,7 +37,8 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Customer::create($request->all());
+        return redirect('customer')->with('success', 'Data telah terkirim');
     }
 
     /**
@@ -57,7 +60,8 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        return view('frontend.supplier.edit');
+        $customer = Customer::find($id);
+        return view('frontend.customer.edit',['customer'=>$customer]);
     }
 
     /**
@@ -67,9 +71,10 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Customer $customer)
     {
-        //
+        $customer->update($request->all());
+        return redirect('customer')->with('success','Data telah terkirim');
     }
 
     /**
@@ -78,8 +83,9 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Customer $customer)
     {
-        //
+        $customer->delete();
+        return redirect()->route('frontend.customer.index')->with(['success' => 'Data berhasil dihapus']);
     }
 }

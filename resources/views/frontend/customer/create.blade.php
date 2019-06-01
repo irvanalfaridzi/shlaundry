@@ -15,20 +15,21 @@
         </div>
       </div>
       <div class="card-body">
-        <form>
+        <form action="{{ route('frontend.customer.store')}}" method="POST">
+            {{csrf_field()}}
             <h6 class="heading-small text-muted mb-4">User information</h6>
             <div class="pl-lg-4">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label class="form-control-label" for="input-first-name">First name</label>
-                        <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name">
+                        <input name="firstname" type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label class="form-control-label" for="input-last-name">Last name</label>
-                        <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name">
+                        <input type="text" name="lastname" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name">
                         </div>
                     </div>
                 </div>
@@ -36,7 +37,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label class="form-control-label" for="input-first-name">Phone Number</label>
-                        <input type="text" id="phone-number" class="form-control form-control-alternative" placeholder="Phone Number">
+                        <input type="text" name="phone" id="phone-number" class="form-control form-control-alternative" placeholder="Phone Number">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -46,10 +47,10 @@
                                 <div class="input-group-prepend">
                                     <label class="input-group-text form-control-alternative" for="inputGroupSelect01">Options</label>
                                 </div>
-                                <select class="custom-select form-control-alternative" id="inputGroupSelect01">
+                                <select name="gender" class="custom-select form-control-alternative" id="inputGroupSelect01">
                                     <option selected>Choose...</option>
-                                    <option value="1">Man</option>
-                                    <option value="2">Woman</option>
+                                    <option value="man">Man</option>
+                                    <option value="woman">Woman</option>
                                 </select>
                             </div>
                         </div>
@@ -63,7 +64,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="form-control-label" for="input-address">Address</label>
-                    <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" type="text">
+                    <input id="input-address" name="address" class="form-control form-control-alternative" placeholder="Home Address" type="text">
                     </div>
                 </div>
                 </div>
@@ -71,26 +72,26 @@
                 <div class="col-lg-4">
                     <div class="form-group">
                     <label class="form-control-label" for="input-city">City</label>
-                    <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City">
+                    <input type="text" id="input-city" name="city" class="form-control form-control-alternative" placeholder="City">
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group">
                     <label class="form-control-label" for="input-country">Country</label>
-                    <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country">
+                    <input type="text" id="input-country" name="country" class="form-control form-control-alternative" placeholder="Country">
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group">
                     <label class="form-control-label" for="input-country">Postal code</label>
-                    <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="Postal code">
+                    <input type="number" id="input-postal-code" name="postalcode" class="form-control form-control-alternative" placeholder="Postal code">
                     </div>
                 </div>
                 </div>
             </div>
             <hr class="my-4" />
             <div class="col-12 text-right">
-                <button class="btn btn-icon btn-3 btn-success" type="button">
+                <button class="btn btn-icon btn-3 btn-success">
                     <span class="btn-inner--icon"><i class="ni ni-single-copy-04"></i></span>
                     
                     <span class="btn-inner--text">Save</span>   
