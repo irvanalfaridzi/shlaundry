@@ -21,7 +21,7 @@ class CreateCustomersTable extends Migration
             $table->string('phone');
             $table->string('country')->nullable();
             $table->string('city')->nullable();
-            $table->integer('postalcode')->nullable();
+            $table->string('postalcode')->nullable();
             $table->text('address');
             $table->timestamps();
             $table->softDeletes();

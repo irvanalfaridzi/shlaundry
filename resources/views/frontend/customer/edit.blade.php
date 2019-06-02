@@ -24,13 +24,13 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label class="form-control-label" for="input-first-name">First name</label>
-                        <input name="firstname" type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name">
+                        <input name="firstname" type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="{{ $customer->firstname }}">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label class="form-control-label" for="input-last-name">Last name</label>
-                        <input type="text" name="lastname" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name">
+                        <input type="text" name="lastname" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="{{ $customer->lastname }}">
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label class="form-control-label" for="input-first-name">Phone Number</label>
-                        <input type="text" name="phone" id="phone-number" class="form-control form-control-alternative" placeholder="Phone Number">
+                        <input type="text" name="phone" id="phone-number" class="form-control form-control-alternative" placeholder="Phone Number" value="{{ $customer->phone }}">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -65,7 +65,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="form-control-label" for="input-address">Address</label>
-                    <input id="input-address" name="address" class="form-control form-control-alternative" placeholder="Home Address" type="text">
+                    <input id="input-address" name="address" class="form-control form-control-alternative" placeholder="Home Address" type="text" value="{{ $customer->address }}">
                     </div>
                 </div>
                 </div>
@@ -73,19 +73,19 @@
                 <div class="col-lg-4">
                     <div class="form-group">
                     <label class="form-control-label" for="input-city">City</label>
-                    <input type="text" id="input-city" name="city" class="form-control form-control-alternative" placeholder="City">
+                    <input type="text" id="input-city" name="city" class="form-control form-control-alternative" placeholder="City" value="{{ $customer->city }}">
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group">
                     <label class="form-control-label" for="input-country">Country</label>
-                    <input type="text" id="input-country" name="country" class="form-control form-control-alternative" placeholder="Country">
+                    <input type="text" id="input-country" name="country" class="form-control form-control-alternative" placeholder="Country" value="{{ $customer->country }}">
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group">
                     <label class="form-control-label" for="input-country">Postal code</label>
-                    <input type="number" id="input-postal-code" name="postalcode" class="form-control form-control-alternative" placeholder="Postal code">
+                    <input type="number" id="input-postal-code" name="postalcode" class="form-control form-control-alternative" placeholder="Postal code" value="{{ $customer->postalcode}}" >
                     </div>
                 </div>
                 </div>
