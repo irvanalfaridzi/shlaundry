@@ -18,7 +18,13 @@ Route::name('frontend.')->group(function () {
       
       Route::resource('supplier', 'SupplierController');
       
-      Route::resource('product', 'ProductController');
+
+      Route::namespace('Products')->group(function () {  
+        Route::resource('product', 'ProductController');
+        Route::resource('product-categories', 'ProductCategoriesController');
+        Route::resource('product-units', 'ProductUnitsController');
+      });
+
 
       Route::resource('service', 'ServiceController');
 
