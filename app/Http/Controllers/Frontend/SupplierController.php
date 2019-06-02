@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Supplier;
 
 class SupplierController extends Controller
 {
@@ -14,7 +15,8 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        return view('frontend.supplier.index');
+        $suppliers = Supplier::all();
+        return view('frontend.supplier.index',['suppliers'=>$suppliers]);
     }
 
     /**
@@ -24,7 +26,13 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        return view('frontend.supplier.create');
+        do{
+            $count = Supplier::count()+1;
+            $generatecode = 'SUPP-#'.$count . str_random(5) . mt_rand(1000, 9999);
+            $code = Supplier::where('code', $generatecode)->first();
+        } while(!empty($code));
+
+        return view('frontend.supplier.create',['generatecode'=>$generatecode]);
     }
 
     /**
@@ -35,7 +43,8 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Supplier::create($request->all());
+        return redirect('supplier')->with('success', 'Data telah terkirim');
     }
 
     /**
@@ -57,7 +66,8 @@ class SupplierController extends Controller
      */
     public function edit($id)
     {
-        return view('frontend.supplier.edit');
+        $supplier = Supplier::find($id);
+        return view('frontend.supplier.edit',['supplier'=>$supplier]);
     }
 
     /**
@@ -67,9 +77,10 @@ class SupplierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Supplier $supplier)
     {
-        //
+        $supplier->update($request->all());
+        return redirect('supplier')->with('success','Data telah terkirim');
     }
 
     /**
@@ -78,8 +89,9 @@ class SupplierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Supplier $supplier)
     {
-        //
+        $supplier->delete();
+        return redirect()->route('frontend.supplier.index')->with(['success' => 'Data berhasil dihapus']);
     }
 }
