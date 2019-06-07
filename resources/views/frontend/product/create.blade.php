@@ -15,15 +15,16 @@
         </div>
       </div>
       <div class="card-body">
-        <form action="{{ route('frontend.supplier.store')}}" method="POST">
+        <form action="{{ route('frontend.product.store')}}" method="POST">
             {{csrf_field()}}
             <div class="pl-lg-4">
                 <div class="row">
                     <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="form-control-label" for="input-first-name">Code Item</label>
-                                <input type="text" id="input-code" class="form-control form-control-alternative" disabled>
-                                <input name="code" type="text" class="form-control form-control-alternative" hidden>
+                                <input type="text" id="input-code" class="form-control form-control-alternative" value="{{ $generatecode }}" disabled>
+                                <input name="code" type="text" class="form-control form-control-alternative" hidden value="{{ $generatecode }}">
+                                <input name="stock" type="text" class="form-control form-control-alternative" hidden value="0">
                             </div>
                     </div>
                 </div>
@@ -49,18 +50,20 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label class="form-control-label" for="inputUnit">Unit</label>
-                        <select id="inputUnit" class="form-control form-control-alternative">
+                        <select name="unit_id" id="inputUnit" class="form-control form-control-alternative">
                             <option selected>Choose...</option>
-                            <option>...</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
                         </select>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label class="form-control-label" for="inputCategory">Category</label>
-                        <select id="inputCategory" class="form-control form-control-alternative">
+                        <select name="category_id" id="inputCategory" class="form-control form-control-alternative">
                             <option selected>Choose...</option>
-                            <option>...</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
                         </select>
                         </div>
                     </div>

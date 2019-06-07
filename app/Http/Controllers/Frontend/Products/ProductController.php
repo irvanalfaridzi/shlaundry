@@ -34,7 +34,13 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('frontend.product.create');
+        do{
+            $count = Product::count()+1;
+            $generatecode = 'SC-#'.$count . str_random(5) . mt_rand(1000, 9999);
+            $code = Product::where('code', $generatecode)->first();
+        } while(!empty($code));
+
+        return view('frontend.product.create',['generatecode'=>$generatecode]);
     }
 
     /**
@@ -45,7 +51,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Product::create($request->all());
+        return redirect('product')->with('success', 'Data telah terkirim');
     }
 
     /**
@@ -67,7 +74,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        return view('frontend.product.edit',['product'=>$product]);
     }
 
     /**
@@ -77,9 +85,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $product->update($request->all());
+        return redirect('product')->with('success','Data telah terkirim');
     }
 
     /**
@@ -88,8 +97,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        dd($product);
+        $product->delete();
+        return redirect()->route('frontend.product.index')->with(['success' => 'Data berhasil dihapus']);
     }
 }

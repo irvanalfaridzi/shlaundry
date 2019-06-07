@@ -186,6 +186,7 @@
                                 <th>Unit</th>
                                 <th>Category</th>
                                 <th>Price</th>
+                                <th>Stock</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -197,18 +198,19 @@
                                 <td>{{ $product->unit_id }}</td>
                                 <td>{{ $product->category_id }}</td>
                                 <td>{{ $product->price }}</td>
+                                <td>{{ $product->stock }}</td>
                                 <td class="text-right">
                                     <div class="dropdown">
                                         <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="">Edit</a>
-                                            <a class="dropdown-item" data-toggle="modal" data-target="#modal-notification">Delete</a>
+                                            <a class="dropdown-item" href="{{ route('frontend.product.edit',[$product->id])}}">Edit</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#modal-product">Delete</a>
                                         </div>
                                     </div>
                                 </td>
-                                <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+                                <div class="modal fade" id="modal-product" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
                                     <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
                                         <div class="modal-content bg-gradient-danger">
                                             
@@ -228,7 +230,7 @@
                                             </div>
                                             
                                             <div class="modal-footer">
-                                                <form action="" method="POST">
+                                                <form action="{{ route('frontend.product.destroy',[$product->id])}}" method="POST">
                                                     <input type="hidden" name="_method" value="Delete">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <input type="submit" class="btn btn-white" value="Ok, Got it">

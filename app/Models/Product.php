@@ -15,5 +15,6 @@ class Product extends MasterModel
         'unit_id',
         'category_id',
         'price',
+        'stock',
     ];
 }
