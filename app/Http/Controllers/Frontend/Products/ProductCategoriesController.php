@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend\Products;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ProductCategory;
 
 class ProductCategoriesController extends Controller
 {
@@ -35,7 +36,8 @@ class ProductCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ProductCategory::create($request->all());
+        return redirect('product')->with('success', 'Data telah terkirim');
     }
 
     /**
@@ -57,7 +59,8 @@ class ProductCategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $productCategory = ProductCategory::find($id);
+        return view('frontend.employee.edit',['productCategory'=>$productCategory]);
     }
 
     /**
@@ -67,9 +70,10 @@ class ProductCategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, ProductCategory $productCategory)
     {
-        //
+        $productCategory->update($request->all());
+        return redirect('product')->with('success','Data telah terkirim');
     }
 
     /**

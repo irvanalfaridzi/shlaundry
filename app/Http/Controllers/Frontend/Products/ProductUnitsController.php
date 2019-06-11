@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend\Products;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ProductUnit;
 
 class ProductUnitsController extends Controller
 {
@@ -35,7 +36,8 @@ class ProductUnitsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ProductUnit::create($request->all());
+        return redirect('product')->with('success', 'Data telah terkirim');
     }
 
     /**
@@ -57,7 +59,8 @@ class ProductUnitsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $productUnit = ProductUnit::find($id);
+        return view('frontend.employee.edit',['productUnit'=>$productUnit]);
     }
 
     /**
@@ -67,9 +70,10 @@ class ProductUnitsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, ProductUnit $productUnit)
     {
-        //
+        $productUnit->update($request->all());
+        return redirect('product')->with('success','Data telah terkirim');
     }
 
     /**

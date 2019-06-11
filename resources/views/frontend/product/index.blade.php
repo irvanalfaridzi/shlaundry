@@ -14,8 +14,8 @@
                         <h3 class="mb-0">Categories</h3>
                     </div>
                     <div class="text-right col-4">
-                        <a data-toggle="modal" data-target="#modal-category" class="btn btn-sm btn-primary text-white">Add Category</a>
-                        @include('frontend.product.category.modal')
+                        <a data-toggle="modal" data-target="#modalCreate-category" class="btn btn-sm btn-primary text-white">Add Category</a>
+                        @include('frontend.product.category.modal-create')
                     </div>
                 </div>
             </div>
@@ -92,8 +92,8 @@
                         <h3 class="mb-0">Units</h3>
                     </div>
                     <div class="text-right col-4">
-                        <a data-toggle="modal" data-target="#modal-unit" class="btn btn-sm btn-primary text-white">Add Unit</a>
-                        @include('frontend.product.unit.modal')
+                        <a data-toggle="modal" data-target="#modalCreate-unit" class="btn btn-sm btn-primary text-white">Add Unit</a>
+                        @include('frontend.product.unit.modal-create')
                     </div>
                 </div>
             </div>
