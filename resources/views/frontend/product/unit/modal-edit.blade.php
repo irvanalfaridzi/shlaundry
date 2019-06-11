@@ -1,14 +1,14 @@
-<div class="modal fade" id="modalEdit-category" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+<div class="modal fade" id="modalEdit-unit" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
     <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">   
             <div class="modal-body p-0">  
                 <div class="card bg-secondary shadow border-0">
                     <div class="card-header">
-                        <div class="text-center mt-2 mb-3"><h3><i class="ni ni-briefcase-24 text-primary"></i> Category </h3></div>
+                        <div class="text-center mt-2 mb-3"><h3><i class="ni ni-briefcase-24 text-primary"></i> Unit </h3></div>
                     </div>
                     <div class="card-body px-lg-5 py-lg-5">
                         <div class="text-center text-muted mb-4">
-                            <small>Please fill the box with the name of category</small>
+                            <small>Please fill the box with the name of unit</small>
                         </div>
                         <form>
                             <div class="form-group mb-3">

@@ -40,9 +40,10 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="">Edit</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#modalEdit-category">Edit</a>
                                             <a class="dropdown-item" data-toggle="modal" data-target="#modal-notification">Delete</a>
                                         </div>
+                                        @include('frontend.product.category.modal-edit')
                                     </div>
                                 </td>
                                 <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
@@ -118,9 +119,10 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="">Edit</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#modalEdit-unit">Edit</a>
                                             <a class="dropdown-item" data-toggle="modal" data-target="#modal-notification">Delete</a>
                                         </div>
+                                        @include('frontend.product.unit.modal-edit')
                                     </div>
                                 </td>
                                 <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">

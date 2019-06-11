@@ -60,7 +60,7 @@ class ProductCategoriesController extends Controller
     public function edit($id)
     {
         $productCategory = ProductCategory::find($id);
-        return view('frontend.employee.edit',['productCategory'=>$productCategory]);
+        return view('frontend.product.category.modal-edit',['productCategory'=>$productCategory]);
     }
 
     /**
