@@ -80,7 +80,7 @@
                                         </div>
                                         
                                         <div class="modal-footer">
-                                            <form action="{{ route('frontend.supplier.destroy',[$supplier->id])}}" method="POST">
+                                            <form action="{{ route('frontend.supplier.destroy',$supplier->id)}}" method="POST">
                                                 <input type="hidden" name="_method" value="Delete">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <input type="submit" class="btn btn-white" value="Ok, Got it">
