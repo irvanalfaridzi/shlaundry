@@ -122,8 +122,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
-                        <i class="ni ni-circle-08 text-pink"></i> Users / Employees
+                    <a class="nav-link" href="{{ route('frontend.employee.index')}}">
+                        <i class="ni ni-circle-08 text-pink"></i> Employees
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('frontend.employee.index')}}">
+                        <i class="ni ni-circle-08 text-pink"></i> Users
                     </a>
                 </li>
             </ul>
