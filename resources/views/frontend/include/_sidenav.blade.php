@@ -102,6 +102,11 @@
             <!-- Navigation -->
             <ul class="navbar-nav mb-md-3">
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('frontend.employee.index')}}">
+                        <i class="ni ni-badge text-pink"></i> Employees
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('frontend.customer.index')}}">
                         <i class="ni ni-spaceship text-red"></i> Customers
                     </a>
@@ -123,12 +128,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('frontend.employee.index')}}">
-                        <i class="ni ni-circle-08 text-pink"></i> Employees
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('frontend.employee.index')}}">
-                        <i class="ni ni-circle-08 text-pink"></i> Users
+                        <i class="ni ni-circle-08 text-green"></i> Users
                     </a>
                 </li>
             </ul>
