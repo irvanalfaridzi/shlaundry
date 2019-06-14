@@ -12,7 +12,7 @@
 
  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
  
- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+ <link href="{{ asset('css/select2.css')}}" rel="stylesheet" />
 
 
  @stack('header-scripts')
