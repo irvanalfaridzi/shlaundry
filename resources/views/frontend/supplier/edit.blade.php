@@ -102,7 +102,7 @@
                 <div class="col-lg-12">
                     <div class="form-group">
                     <label class="form-control-label" for="input-city">Note</label>
-                    <textarea name="note" class="form-control form-control-alternative" id="input-note" rows="3" value="{{$supplier->note}}"></textarea>
+                    <textarea name="note" class="form-control form-control-alternative" id="input-note" rows="3">{{$supplier->note}}</textarea>
                     </div>
                 </div>
                 </div>

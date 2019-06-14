@@ -50,8 +50,8 @@
                                 </div>
                                 <select name="gender" class="custom-select form-control-alternative" id="inputGroupSelect01">
                                     <option selected>Choose...</option>
-                                    <option value="man">Man</option>
-                                    <option value="woman">Woman</option>
+                                    <option value="man" @if($customer->gender == 'man') selected @endif>Man</option>
+                                    <option value="woman" @if($customer->gender == 'woman') selected @endif>Woman</option>
                                 </select>
                             </div>
                         </div>
