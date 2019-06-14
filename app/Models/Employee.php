@@ -19,4 +19,10 @@ class Employee extends MasterModel
         'postalcode',
         'address',
     ];
+
+    public function user()
+    {
+        return $this->hasMany(App\User::class);
+    }
+
 }

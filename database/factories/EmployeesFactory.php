@@ -5,8 +5,8 @@ use App\Models\Employee;
 
 $factory->define(Employee::class, function (Faker $faker) {
     return [
-        'firstname' => $faker-> firstName(),
-        'lastname' => $faker-> lastName(),
+        'firstname' => 'admin',
+        'lastname' => '',
         'gender' => $faker-> randomElement(['man','woman']),
         'phone' => $faker-> phoneNumber(),
         'country' => 'indonesian',

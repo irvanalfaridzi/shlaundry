@@ -127,7 +127,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('frontend.employee.index')}}">
+                    <a class="nav-link" href="{{ route('frontend.user.index')}}">
                         <i class="ni ni-circle-08 text-green"></i> Users
                     </a>
                 </li>

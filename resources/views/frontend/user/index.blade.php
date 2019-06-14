@@ -11,7 +11,7 @@
             <div class="card-header bg-white border-0">
             <div class="row align-items-center">
                 <div class="col-8">
-                <h3 class="mb-0">Employee</h3>
+                <h3 class="mb-0">User</h3>
                 </div>
                 <div class="col-4 text-right">
                 <a href="#" class="btn btn-sm btn-primary">Add User</a>
@@ -20,12 +20,13 @@
             </div>
             <div class="card-body">
             <div class="table-responsive">
-                <table id="customer_table" class="table table-striped table-bordered second" style="width:100%">
+                <table id="user_table" class="table table-striped table-bordered second" style="width:100%">
                     <thead>
                         <tr>
                             <th>Name</th>
                             <th>Username</th>
                             <th>Email</th>
+                            <th>Role</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -35,6 +36,7 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->username }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>{{ $user->role->name }}</td>
                             <td class="text-right">
                                 <div class="dropdown">
                                     <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -94,7 +96,7 @@
                 <h3 class="mb-0">Role</h3>
                 </div>
                 <div class="col-4 text-right">
-                <a href="{{ route('register') }}" class="btn btn-sm btn-primary">Add User</a>
+                <a href="{{ route('register') }}" class="btn btn-sm btn-primary">Add Role</a>
                 </div>
             </div>
             </div>
@@ -111,15 +113,15 @@
                     <tbody>
                         @foreach ($roles as $role)
                         <tr>
-                            <td>{{ $role->id }}</td>
-                            <td>{{ $role->name }}</td>
+                            <td>{{ $role->id}}</td>
+                            <td>{{ $role->name}}</td>
                             <td class="text-right">
                                 <div class="dropdown">
                                     <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-ellipsis-v"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                        <a class="dropdown-item" href="{{ route('frontend.employee.edit',[$role->id])}}">Edit</a>
+                                        <a class="dropdown-item" href="">Edit</a>
                                         <a class="dropdown-item" data-toggle="modal" data-target="#modal-notification">Delete</a>
                                     </div>
                                 </div>
@@ -167,5 +169,5 @@
 @endsection
 
 @push('footer-scripts')
-<script src="{{ asset('js/frontend/customer/index.js')}}" type="text/javascript"></script>
+<script src="{{ asset('js/frontend/user/index.js')}}" type="text/javascript"></script>
 @endpush
