@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class ServiceController extends Controller
 {
@@ -14,7 +13,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return view('frontend.service.index');
+        //
     }
 
     /**
