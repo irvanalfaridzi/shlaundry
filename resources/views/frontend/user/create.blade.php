@@ -10,12 +10,12 @@
       <div class="card-header bg-white border-0">
         <div class="row align-items-center">
           <div class="col-8">
-            <h3 class="mb-0">Add Employee</h3>
+            <h3 class="mb-0">Add User</h3>
           </div>
         </div>
       </div>
       <div class="card-body">
-        <form action="{{ route('frontend.employee.store')}}" method="POST">
+        <form action="{{ route('frontend.user.store')}}" method="POST">
             {{csrf_field()}}
             <h6 class="heading-small text-muted mb-4">User information</h6>
             <div class="pl-lg-4">
@@ -23,17 +23,17 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label class="form-control-label" for="input-first-name">Name</label><br>
-                        <select id="name" class="form-control form-control-alternative" name="state">
-                            <option value="AL">Alabama</option>
-                              ...
-                            <option value="WY">Wyoming</option>
+                        <select id="name" class="form-control form-control-alternative" name="name">
+                            @foreach ($employees as $employee)
+                                <option value="{{ $employee->id }}">{{ $employee->firstname }} {{ $employee->lastname }}</option>
+                            @endforeach
                         </select>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
-                        <label class="form-control-label" for="input-last-name">Username</label>
-                        <input type="text" name="lastname" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name">
+                        <label class="form-control-label" for="username">Username</label>
+                        <input type="text" name="username" id="username" class="form-control form-control-alternative" placeholder="Username">
                         </div>
                     </div>
                 </div>
@@ -41,13 +41,17 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label class="form-control-label" for="input-first-name">Email</label>
-                        <input type="text" name="phone" id="phone-number" class="form-control form-control-alternative" placeholder="Phone Number">
+                        <input type="email" name="email" id="email" class="form-control form-control-alternative" placeholder="Email">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label class="form-control-label" for="input-first-name">Role</label>
-                        <input type="text" name="phone" id="phone-number" class="form-control form-control-alternative" placeholder="Phone Number">
+                        <select id="role" class="form-control form-control-alternative" name="role">
+                            @foreach ($roles as $role)
+                                <option value="{{ $role->id }}">{{ $role->name }}</option>
+                            @endforeach
+                        </select>
                         </div>
                     </div>
                 </div>
@@ -55,7 +59,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label class="form-control-label" for="input-first-name">Password</label>
-                        <input type="text" name="phone" id="phone-number" class="form-control form-control-alternative" placeholder="Phone Number">
+                        <input type="password" name="password" id="password" class="form-control form-control-alternative" placeholder="Password">
                         </div>
                     </div>
                 </div>
@@ -80,9 +84,6 @@
 @endsection
 
 @push('footer-scripts')
-<script>
-$(document).ready(function() {
-    $('.form-control-alternative').select2();
-});
-</script>
+<script src="{{ asset('js/frontend/functions/select2/role.js')}}" type="text/javascript"></script>
+<script src="{{ asset('js/frontend/functions/select2/name.js')}}" type="text/javascript"></script>
 @endpush
