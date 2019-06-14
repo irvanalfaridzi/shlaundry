@@ -14,7 +14,7 @@
                 <h3 class="mb-0">User</h3>
                 </div>
                 <div class="col-4 text-right">
-                <a href="#" class="btn btn-sm btn-primary">Add User</a>
+                <a href="{{ route('frontend.user.create')}}" class="btn btn-sm btn-primary">Add User</a>
                 </div>
             </div>
             </div>

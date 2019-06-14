@@ -32,7 +32,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('frontend.user.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('frontend.user.edit');
     }
 
     /**
