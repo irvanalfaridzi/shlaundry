@@ -12,6 +12,7 @@ class Customer extends MasterModel
     protected $fillable = [
         'firstname',
         'lastname',
+        'gender',
         'phone',
         'country',
         'city',
