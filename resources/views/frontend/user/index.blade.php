@@ -43,7 +43,7 @@
                                         <i class="fas fa-ellipsis-v"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                        <a class="dropdown-item" href="{{ route('frontend.employee.edit',[$user->id])}}">Edit</a>
+                                        <a class="dropdown-item" href="{{ route('frontend.user.edit',[$user->id])}}">Edit</a>
                                         <a class="dropdown-item" data-toggle="modal" data-target="#modal-notification">Delete</a>
                                     </div>
                                 </div>
