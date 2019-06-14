@@ -96,7 +96,8 @@
                 <h3 class="mb-0">Role</h3>
                 </div>
                 <div class="col-4 text-right">
-                <a href="{{ route('register') }}" class="btn btn-sm btn-primary">Add Role</a>
+                <a data-toggle="modal" data-target="#modalCreate-role" class="btn btn-sm btn-primary text-white">Add Role</a>
+                @include('frontend.user.role.modal-create')
                 </div>
             </div>
             </div>
@@ -121,9 +122,10 @@
                                         <i class="fas fa-ellipsis-v"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                        <a class="dropdown-item" href="">Edit</a>
+                                        <a class="dropdown-item" data-toggle="modal" data-target="#modalEdit-role" >Edit</a>
                                         <a class="dropdown-item" data-toggle="modal" data-target="#modal-notification">Delete</a>
                                     </div>
+                                    @include('frontend.user.role.modal-edit')
                                 </div>
                             </td>
                             <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">

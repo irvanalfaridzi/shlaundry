@@ -1,4 +1,4 @@
-<div class="modal fade" id="modalCreate-role" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+<div class="modal fade" id="modalEdit-role" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
     <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">   
             <div class="modal-body p-0">  
@@ -10,7 +10,7 @@
                         <div class="text-center text-muted mb-4">
                             <small>Please fill the box with the name of role</small>
                         </div>
-                        <form action="{{ route('frontend.role.store')}}" method="POST">
+                        <form method="POST">
                             {{csrf_field()}}
                             <div class="form-group mb-3">
                                 <div class="input-group input-group-alternative">

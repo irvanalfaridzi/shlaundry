@@ -36,6 +36,8 @@ Route::name('frontend.')->group(function () {
 
       Route::resource('user', 'UserController');
 
+      Route::resource('role', 'RoleController');
+
       // Route::resource('appointment', 'AppointmentController');
       
     });

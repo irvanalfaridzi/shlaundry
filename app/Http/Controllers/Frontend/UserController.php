@@ -89,7 +89,16 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('frontend.user.edit');
+        $user = User::find($id);
+        $employees = Employee::all();
+        $roles = Role::all();
+
+        return view('frontend.user.edit',
+        [
+            'employees' => $employees,
+            'user' => $user,
+            'roles' => $roles,
+        ]);
     }
 
     /**
@@ -101,7 +110,21 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $role_id = $request->get('role');
+        $employee_id = $request->get('name');
+        $username = $request->get('username');
+        $email = $request->get('email');
+        $password = Hash::make($request->get('password'));
+
+        DB::table('users')->where('id', '=', $id)->update([
+            'role_id' => $role_id,
+            'employee_id' => $employee_id,
+            'username' => $username,
+            'email' => $email,
+            'password' => $password
+        ]);
+
+        return redirect('user')->with('success', 'Data telah terkirim');
     }
 
     /**
