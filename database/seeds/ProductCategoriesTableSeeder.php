@@ -12,6 +12,16 @@ class ProductCategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(ProductCategory::class,5)->create();
+        DB::table('product_category')->insert([
+            [
+                'name' => 'Deep Clean Shoes',   
+            ],
+            [
+                'name' => 'Additional Treatment',   
+            ],
+            [
+                'name' => 'Bag and Accessories',   
+            ]
+        ]);
     }
 }
