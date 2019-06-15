@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Service;
+use App\Models\ProductCategory;
 
 class ServiceController extends Controller
 {
@@ -14,7 +16,13 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return view('frontend.service.index');
+        $services = Service::all();
+        $categories = ProductCategory::all();
+        return view('frontend.service.index',
+        [
+            'services' => $services, 
+            'categories' => $categories        
+        ]);
     }
 
     /**
@@ -24,7 +32,12 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        $categories = ProductCategory::all();
+
+        return view('frontend.service.create',
+        [ 
+            'categories' => $categories        
+        ]);
     }
 
     /**
@@ -35,7 +48,8 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Service::create($request->all());
+        return redirect('service')->with('success', 'Data telah terkirim');
     }
 
     /**
@@ -56,8 +70,14 @@ class ServiceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {     
+        $service = Service::find($id);
+        $categories = ProductCategory::all();
+        return view('frontend.service.edit',
+        [
+            'service'=>$service,
+            'categories' => $categories      
+        ]);
     }
 
     /**
@@ -67,9 +87,10 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Service $service)
     {
-        //
+        $service->update($request->all());
+        return redirect('service')->with('success', 'Data telah terkirim');
     }
 
     /**

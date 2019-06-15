@@ -12,4 +12,9 @@ class ProductCategory extends MasterModel
     protected $fillable = [
         'name',
     ];
+
+    public function service()
+    {
+        return $this->hasMany(Service::class);
+    }
 }
