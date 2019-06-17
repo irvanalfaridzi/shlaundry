@@ -86,8 +86,10 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $employee = Employee::findOrFail($request->id);
+        $employee->delete();
+        return redirect()->route('frontend.employee.index')->with(['success' => 'Data berhasil dihapus']);
     }
 }

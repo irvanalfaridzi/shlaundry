@@ -20,7 +20,7 @@
             </div>
             <div class="card-body">
             <div class="table-responsive">
-                <table id="customer_table" class="table table-striped table-bordered second" style="width:100%">
+                <table id="employee_table" class="table table-striped table-bordered second" style="width:100%">
                     <thead>
                         <tr>
                             <th>Full Name</th>
@@ -50,11 +50,11 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                         <a class="dropdown-item" href="{{ route('frontend.employee.edit',[$employee->id])}}">Edit</a>
-                                        <a class="dropdown-item" data-toggle="modal" data-target="#modal-notification">Delete</a>
+                                        <a class="dropdown-item" data-toggle="modal" data-id="{{$employee->id}}" data-target="#modalDelete-employee">Delete</a>
                                     </div>
                                 </div>
                             </td>
-                            <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+                            <div class="modal fade" id="modalDelete-employee" tabindex="-1" role="dialog" aria-labelledby="modalDelete-employee" aria-hidden="true">
                                 <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
                                     <div class="modal-content bg-gradient-danger">
                                         
@@ -74,9 +74,10 @@
                                         </div>
                                         
                                         <div class="modal-footer">
-                                            <form action="#" method="POST">
+                                            <form action="{{ route('frontend.employee.destroy','delete')}}" method="POST">
                                                 <input type="hidden" name="_method" value="Delete">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                <input type="hidden" name="id" id="id">
                                                 <input type="submit" class="btn btn-white" value="Ok, Got it">
                                             </form>
                                             <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Close</button> 
@@ -97,5 +98,5 @@
 @endsection
 
 @push('footer-scripts')
-<script src="{{ asset('js/frontend/customer/index.js')}}" type="text/javascript"></script>
+<script src="{{ asset('js/frontend/employee/index.js')}}" type="text/javascript"></script>
 @endpush
