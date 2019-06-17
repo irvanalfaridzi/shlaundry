@@ -83,8 +83,10 @@ class ProductCategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $category = ProductCategory::findOrFail($request->id);
+        $category->delete();
+        return redirect()->route('frontend.product.index')->with(['success' => 'Data berhasil dihapus']);
     }
 }

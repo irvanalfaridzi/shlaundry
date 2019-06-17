@@ -26,6 +26,28 @@ let Products = {
 
         });
 
+        $('#modalDelete-category').on('show.bs.modal', function (event){
+            
+            var button = $(event.relatedTarget);
+            var id = button.data('id');
+
+            var modal = $(this);
+
+            modal.find('.modal-footer #id').val(id);
+
+        });
+
+        $('#modalDelete-unit').on('show.bs.modal', function (event){
+            
+            var button = $(event.relatedTarget);
+            var id = button.data('id');
+
+            var modal = $(this);
+
+            modal.find('.modal-footer #id').val(id);
+
+        });
+
         $('#categories_table').DataTable({
             "scrollY": 200,
             "scrollX": true
