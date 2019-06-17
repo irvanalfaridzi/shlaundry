@@ -71,7 +71,9 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $role = Role::findOrFail($request->id);
+        $role->update($request->all());
+        return redirect('user')->with('success','Data telah terkirim');
     }
 
     /**

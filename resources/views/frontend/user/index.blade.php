@@ -122,7 +122,7 @@
                                         <i class="fas fa-ellipsis-v"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                        <a class="dropdown-item" data-toggle="modal" data-target="#modalEdit-role" >Edit</a>
+                                        <a class="dropdown-item" data-toggle="modal" data-id="{{$role->id}}" data-name="{{$role->name}}" data-target="#modalEdit-role" >Edit</a>
                                         <a class="dropdown-item" data-toggle="modal" data-target="#modal-notification">Delete</a>
                                     </div>
                                     @include('frontend.user.role.modal-edit')
