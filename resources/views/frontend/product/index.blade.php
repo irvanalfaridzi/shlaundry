@@ -213,7 +213,7 @@
                                     -
                                     @endif
                                 </td>
-                                <td>{{ $product->price }}</td>
+                                <td>Rp. {{ number_format($product->price,2,",",".") }}</td>
                                 <td>{{ $product->stock }}</td>
                                 <td class="text-right">
                                     <div class="dropdown">

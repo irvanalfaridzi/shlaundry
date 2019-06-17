@@ -43,7 +43,7 @@
                                 -
                                 @endif
                             </td>
-                            <td>{{$service->price}}</td>
+                            <td>Rp. {{ number_format($service->price,2,",",".") }}</td>
                             <td>{{$service->description}}</td>
                             <td class="text-right">
                                 <div class="dropdown">
