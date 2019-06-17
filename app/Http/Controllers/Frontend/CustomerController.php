@@ -83,8 +83,9 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customer)
+    public function destroy(Request $request)
     {
+        $customer = Customer::findOrFail($request->id);
         $customer->delete();
         return redirect()->route('frontend.customer.index')->with(['success' => 'Data berhasil dihapus']);
     }

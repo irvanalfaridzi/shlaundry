@@ -50,11 +50,11 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                         <a class="dropdown-item" href="{{ route('frontend.customer.edit',[$customer->id])}}">Edit</a>
-                                        <a class="dropdown-item" data-toggle="modal" data-target="#modal-notification">Delete</a>
+                                        <a class="dropdown-item" data-toggle="modal" data-id="{{$customer->id}}" data-target="#modalDelete-Customer">Delete</a>
                                     </div>
                                 </div>
                             </td>
-                            <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+                            <div class="modal fade" id="modalDelete-Customer" tabindex="-1" role="dialog" aria-labelledby="modalDelete-Customer" aria-hidden="true">
                                 <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
                                     <div class="modal-content bg-gradient-danger">
                                         
@@ -74,9 +74,10 @@
                                         </div>
                                         
                                         <div class="modal-footer">
-                                            <form action="{{ route('frontend.customer.destroy',[$customer->id])}}" method="POST">
+                                            <form action="{{ route('frontend.customer.destroy','delete')}}" method="POST">
                                                 <input type="hidden" name="_method" value="Delete">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                <input type="hidden" name="id" id="id">
                                                 <input type="submit" class="btn btn-white" value="Ok, Got it">
                                             </form>
                                             <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Close</button> 
