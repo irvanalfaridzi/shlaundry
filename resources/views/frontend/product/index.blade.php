@@ -199,8 +199,20 @@
                             <tr>
                                 <td>{{ $product->code }}</td>
                                 <td>{{ $product->name }}</td>
-                                <td>{{ $product->unit->name }}</td>
-                                <td>{{ $product->category->name }}</td>
+                                <td>
+                                    @if(isset($product->unit->name))
+                                        {{$product->unit->name}}
+                                    @else
+                                    -
+                                    @endif
+                                </td>
+                                <td>
+                                    @if(isset($product->category->name))
+                                        {{ $product->category->name }}
+                                    @else
+                                    -
+                                    @endif
+                                </td>
                                 <td>{{ $product->price }}</td>
                                 <td>{{ $product->stock }}</td>
                                 <td class="text-right">

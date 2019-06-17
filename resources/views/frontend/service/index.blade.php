@@ -36,7 +36,13 @@
                         <tr>
                             <td>{{$service->code}}</td>
                             <td>{{$service->name}}</td>
-                            <td>{{$service->category->name}}</td>
+                            <td>
+                                @if(isset($service->category->name))
+                                    {{$service->category->name}}
+                                @else
+                                -
+                                @endif
+                            </td>
                             <td>{{$service->price}}</td>
                             <td>{{$service->description}}</td>
                             <td class="text-right">
