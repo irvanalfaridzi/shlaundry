@@ -89,8 +89,9 @@ class SupplierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Supplier $supplier)
+    public function destroy(Request $request)
     {
+        $supplier = Supplier::findOrFail($request->id);
         $supplier->delete();
         return redirect()->route('frontend.supplier.index')->with(['success' => 'Data berhasil dihapus']);
     }
