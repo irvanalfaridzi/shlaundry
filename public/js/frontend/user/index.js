@@ -13,6 +13,28 @@ let Users = {
 
         });
 
+        $('#modalDelete-user').on('show.bs.modal', function (event){
+            
+            var button = $(event.relatedTarget);
+            var id = button.data('id');
+
+            var modal = $(this);
+
+            modal.find('.modal-footer #id').val(id);
+
+        });
+
+        $('#modalDelete-role').on('show.bs.modal', function (event){
+            
+            var button = $(event.relatedTarget);
+            var id = button.data('id');
+
+            var modal = $(this);
+
+            modal.find('.modal-footer #id').val(id);
+
+        });
+
         $('#user_table').DataTable({
             "scrollY": 250,
             "scrollX": true

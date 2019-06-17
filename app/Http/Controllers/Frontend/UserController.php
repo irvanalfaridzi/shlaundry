@@ -133,8 +133,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $user = User::findOrFail($request->id);
+        $user->delete();
+        return redirect()->route('frontend.user.index')->with(['success' => 'Data berhasil dihapus']);
     }
 }

@@ -82,8 +82,10 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $role = Role::findOrFail($request->id);
+        $role->delete();
+        return redirect()->route('frontend.user.index')->with(['success' => 'Data berhasil dihapus']);
     }
 }

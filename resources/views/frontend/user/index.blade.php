@@ -42,7 +42,13 @@
                             </td>
                             <td>{{ $user->username }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->role->name }}</td>
+                            <td>
+                                @if(isset($user->role->name))
+                                    {{ $user->role->name }}
+                                @else
+                                    -
+                                @endif
+                            </td>
                             <td class="text-right">
                                 <div class="dropdown">
                                     <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,11 +56,11 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                         <a class="dropdown-item" href="{{ route('frontend.user.edit',[$user->id])}}">Edit</a>
-                                        <a class="dropdown-item" data-toggle="modal" data-target="#modal-notification">Delete</a>
+                                        <a class="dropdown-item" data-toggle="modal" data-id="{{$user->id}}" data-target="#modalDelete-user">Delete</a>
                                     </div>
                                 </div>
                             </td>
-                            <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+                            <div class="modal fade" id="modalDelete-user" tabindex="-1" role="dialog" aria-labelledby="modalDelete-user" aria-hidden="true">
                                 <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
                                     <div class="modal-content bg-gradient-danger">
                                         
@@ -74,9 +80,10 @@
                                         </div>
                                         
                                         <div class="modal-footer">
-                                            <form action="#" method="POST">
+                                            <form action="{{ route('frontend.user.destroy','delete')}}" method="POST">
                                                 <input type="hidden" name="_method" value="Delete">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                <input type="hidden" name="id" id="id">
                                                 <input type="submit" class="btn btn-white" value="Ok, Got it">
                                             </form>
                                             <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Close</button> 
@@ -129,12 +136,12 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                         <a class="dropdown-item" data-toggle="modal" data-id="{{$role->id}}" data-name="{{$role->name}}" data-target="#modalEdit-role" >Edit</a>
-                                        <a class="dropdown-item" data-toggle="modal" data-target="#modal-notification">Delete</a>
+                                        <a class="dropdown-item" data-toggle="modal" data-id="{{$role->id}}" data-target="#modalDelete-role">Delete</a>
                                     </div>
                                     @include('frontend.user.role.modal-edit')
                                 </div>
                             </td>
-                            <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+                            <div class="modal fade" id="modalDelete-role" tabindex="-1" role="dialog" aria-labelledby="modalDelete-role" aria-hidden="true">
                                 <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
                                     <div class="modal-content bg-gradient-danger">
                                         
@@ -154,9 +161,10 @@
                                         </div>
                                         
                                         <div class="modal-footer">
-                                            <form action="#" method="POST">
+                                            <form action="{{ route('frontend.role.destroy','delete')}}" method="POST">
                                                 <input type="hidden" name="_method" value="Delete">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                <input type="hidden" name="id" id="id">
                                                 <input type="submit" class="btn btn-white" value="Ok, Got it">
                                             </form>
                                             <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Close</button> 
