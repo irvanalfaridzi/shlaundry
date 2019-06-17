@@ -33,7 +33,13 @@
                     <tbody>
                         @foreach ($users as $user)
                         <tr>
-                            <td>{{ $user->employee->firstname }}</td>
+                            <td>
+                                @if(isset($user->employee->firstname))
+                                    {{ $user->employee->firstname }}
+                                @else
+                                    -
+                                @endif
+                            </td>
                             <td>{{ $user->username }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->role->name }}</td>
