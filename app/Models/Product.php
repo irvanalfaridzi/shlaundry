@@ -17,4 +17,14 @@ class Product extends MasterModel
         'price',
         'stock',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(ProductCategory::class);
+    }
+
+    public function unit()
+    {
+        return $this->belongsTo(ProductUnit::class);
+    }
 }

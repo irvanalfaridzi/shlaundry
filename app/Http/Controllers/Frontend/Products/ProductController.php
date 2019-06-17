@@ -40,7 +40,15 @@ class ProductController extends Controller
             $code = Product::where('code', $generatecode)->first();
         } while(!empty($code));
 
-        return view('frontend.product.create',['generatecode'=>$generatecode]);
+        $productCategories = ProductCategory::all();
+        $productUnits= ProductUnit::all();
+
+        return view('frontend.product.create',
+        [
+            'generatecode'=>$generatecode,
+            'productCategories'=> $productCategories,
+            'productUnits'=> $productUnits
+        ]);
     }
 
     /**
@@ -73,9 +81,18 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
         $product = Product::find($id);
-        return view('frontend.product.edit',['product'=>$product]);
+
+        $productCategories = ProductCategory::all();
+        $productUnits= ProductUnit::all();
+        
+        return view('frontend.product.edit',
+        [
+            'product'=>$product,
+            'productCategories'=> $productCategories,
+            'productUnits'=> $productUnits
+        ]);
     }
 
     /**

@@ -17,4 +17,9 @@ class ProductCategory extends MasterModel
     {
         return $this->hasMany(Service::class);
     }
+
+    public function product()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

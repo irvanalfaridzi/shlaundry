@@ -197,8 +197,8 @@
                             <tr>
                                 <td>{{ $product->code }}</td>
                                 <td>{{ $product->name }}</td>
-                                <td>{{ $product->unit_id }}</td>
-                                <td>{{ $product->category_id }}</td>
+                                <td>{{ $product->unit->name }}</td>
+                                <td>{{ $product->category->name }}</td>
                                 <td>{{ $product->price }}</td>
                                 <td>{{ $product->stock }}</td>
                                 <td class="text-right">

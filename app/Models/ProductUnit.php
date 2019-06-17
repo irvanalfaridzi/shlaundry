@@ -12,4 +12,9 @@ class ProductUnit extends MasterModel
     protected $fillable = [
         'name',
     ];
+
+    public function product()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

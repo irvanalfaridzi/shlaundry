@@ -48,24 +48,24 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                        <label class="form-control-label" for="inputUnit">Unit</label>
-                        <select name="unit_id" id="inputUnit" class="form-control form-control-alternative">
-                            <option selected>Choose...</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                        </select>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-control-label" for="input-first-name">Unit</label>
+                                <select id="unit" class="form-control form-control-alternative" name="unit_id">
+                                    @foreach ($productUnits as $unit)
+                                        <option value="{{ $unit->id }}" @if($product->unit_id == $unit->id) selected @endif>{{ $unit->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
-                    </div>
                     <div class="col-lg-6">
                         <div class="form-group">
-                        <label class="form-control-label" for="inputCategory">Category</label>
-                        <select name="category_id" id="inputCategory" class="form-control form-control-alternative">
-                            <option selected>Choose...</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                        </select>
+                            <label class="form-control-label" for="input-first-name">Category</label>
+                            <select id="category" class="form-control form-control-alternative" name="category_id">
+                                @foreach ($productCategories as $category)
+                                    <option value="{{ $category->id }}" @if($product->category_id == $category->id) selected @endif>{{ $category->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -88,3 +88,8 @@
     </div>
   </div>
 @endsection
+
+@push('footer-scripts')
+<script src="{{ asset('js/frontend/functions/select2/category.js')}}" type="text/javascript"></script>
+<script src="{{ asset('js/frontend/functions/select2/unit.js')}}" type="text/javascript"></script>
+@endpush
