@@ -70,9 +70,10 @@ class ProductCategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProductCategory $productCategory)
+    public function update(Request $request)
     {
-        $productCategory->update($request->all());
+        $category = ProductCategory::findOrFail($request->id);
+        $category->update($request->all());
         return redirect('product')->with('success','Data telah terkirim');
     }
 

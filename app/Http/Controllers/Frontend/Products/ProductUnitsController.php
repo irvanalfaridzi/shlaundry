@@ -59,8 +59,7 @@ class ProductUnitsController extends Controller
      */
     public function edit($id)
     {
-        $productUnit = ProductUnit::find($id);
-        return view('frontend.employee.edit',['productUnit'=>$productUnit]);
+        //
     }
 
     /**
@@ -70,9 +69,10 @@ class ProductUnitsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProductUnit $productUnit)
+    public function update(Request $request)
     {
-        $productUnit->update($request->all());
+        $unit = ProductUnit::findOrFail($request->id);
+        $unit->update($request->all());
         return redirect('product')->with('success','Data telah terkirim');
     }
 

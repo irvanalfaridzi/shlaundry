@@ -10,13 +10,16 @@
                         <div class="text-center text-muted mb-4">
                             <small>Please fill the box with the name of unit</small>
                         </div>
-                        <form>
+                        <form action="{{ route('frontend.product-units.update','update')}}" method="POST">
+                            {{csrf_field()}}
+                            {{ method_field('PUT')}}   
                             <div class="form-group mb-3">
                                 <div class="input-group input-group-alternative">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-spaceship"></i></span>
                                     </div>
-                                    <input class="form-control" placeholder="Name" name="name" type="text">
+                                    <input type="hidden" id="id" name="id">
+                                    <input class="form-control" placeholder="Name" name="name" id="name" type="text">
                                 </div>
                             </div>
                             <div class="text-center">

@@ -40,7 +40,7 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" data-toggle="modal" data-target="#modalEdit-category">Edit</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-id="{{$category->id}}" data-name="{{$category->name}}" data-target="#modalEdit-category">Edit</a>
                                             <a class="dropdown-item" data-toggle="modal" data-target="#modal-notification">Delete</a>
                                         </div>
                                         @include('frontend.product.category.modal-edit')
@@ -119,7 +119,7 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" data-toggle="modal" data-target="#modalEdit-unit">Edit</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-id="{{$unit->id}}" data-name="{{$unit->name}}" data-target="#modalEdit-unit">Edit</a>
                                             <a class="dropdown-item" data-toggle="modal" data-target="#modal-notification">Delete</a>
                                         </div>
                                         @include('frontend.product.unit.modal-edit')
