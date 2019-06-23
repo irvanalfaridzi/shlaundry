@@ -14,7 +14,7 @@
                 <h3 class="mb-0">Sales Transaction</h3>
                 </div>
                 <div class="col-4 text-right">
-                <a href="{{ route('frontend.sales.create')}}" class="btn btn-sm btn-primary">Add Employee</a>
+                <a href="{{ route('frontend.sales.create')}}" class="btn btn-sm btn-primary">Add Trasaction</a>
                 </div>
             </div>
             </div>
@@ -52,7 +52,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <div class="modal fade" id="modalDelete-employee" tabindex="-1" role="dialog" aria-labelledby="modalDelete-employee" aria-hidden="true">
+                            <div class="modal fade" id="modalDelete-sales" tabindex="-1" role="dialog" aria-labelledby="modalDelete-sales" aria-hidden="true">
                                 <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
                                     <div class="modal-content bg-gradient-danger">
                                         
