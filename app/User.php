@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Employee;
 use App\Models\Role;
+use App\Models\Sale;
 
 class User extends Authenticatable
 {
@@ -48,4 +49,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
+
+    public function sale()
+    {
+        return $this->hasMany(Sale::class);
+    }
+
 }
