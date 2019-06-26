@@ -24,7 +24,7 @@ class SalesController extends Controller
      */
     public function create()
     {
-        //
+        return view('frontend.sales.create');
     }
 
     /**
