@@ -22,9 +22,9 @@
               <div class="form-group">
                   <label class="form-control-label" for="input-first-name">Customer</label>
                   <select id="customer" class="form-control form-control-alternative" name="customer_id">
-                      {{-- @foreach ($productUnits as $unit) --}}
-                          <option value="1">asd</option>
-                      {{-- @endforeach --}}
+                      @foreach ($customers as $customer)
+                          <option value="{{$customer->id}}">{{$customer->firstname}} {{$customer->lastname}}</option>
+                      @endforeach
                   </select>
               </div>
           </div>
@@ -34,11 +34,59 @@
           <div class="col-12">
               <div class="form-group">
                   <label class="form-control-label" for="input-first-name">Item</label>
-                  <select id="unit" class="form-control form-control-alternative" name="unit_id">
-                      {{-- @foreach ($productUnits as $unit) --}}
-                          <option value="1">asd</option>
-                      {{-- @endforeach --}}
-                  </select>
+                  <div class="input-group">
+                    <input id="item_code" name="item_code" type="text" class="form-control" disabled>
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-item"><i class="fas fa-fw fa-search"></i></button>
+                    </div>
+                  </div>
+              </div>
+              <div class="modal fade" id="modal-item" tabindex="-1" role="dialog" aria-labelledby="modal-item" aria-hidden="true">
+                  <div class="modal-dialog modal- modal-dialog-centered modal-lg" role="document">
+                      <div class="modal-content">
+                        
+                          <div class="modal-header">
+                              <h3>Select Item</h3>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">×</span>
+                              </button>
+                          </div>
+                          
+                          <div class="modal-body">
+                              <div class="table-responsive">
+                                  <table id="products_table" class="table table-striped table-bordered second" style="width:100%">
+                                      <thead>
+                                          <tr>
+                                              <th>#</th>
+                                              <th>Code</th>
+                                              <th>Name</th>
+                                              <th>Category</th>
+                                              <th>Price</th>
+                                              <th></th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                        @php
+                                            $i = 1;
+                                        @endphp
+                                        @foreach ($products as $item)
+                                          <tr>
+                                              <td>{{$i++}}</td>
+                                              <td>{{ $item->code}}</td>
+                                              <td>{{ $item->name}}</td>
+                                              <td>{{ $item->category->name}}</td>
+                                              <td>{{ $item->price}}</td>
+                                              <td>
+                                                  <button type="submit" data-dismiss="modal" class="btn-select btn btn-sm text-dark btn-info"><i class="fas fa-fw fa-plus"></i></button>
+                                              </td>
+                                          </tr> 
+                                          @endforeach
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
               </div>
           </div>
         </div>
@@ -52,7 +100,7 @@
           <div class="col-6">
               <div class="form-group">
                   <label class="form-control-label" for="input-first-name">Discount Item</label>
-                  <input type="number" name="price" id="price" class="form-control form-control-alternative" value="0">
+                  <input type="number" name="discount-item" id="discount-item" class="form-control form-control-alternative" value="0">
               </div>
           </div>
         </div>
@@ -233,3 +281,8 @@
   </div>
 </div>
 @endsection
+
+@push('footer-scripts')
+  <script src="{{ asset('js/frontend/sales/create.js')}}" type="text/javascript"></script>
+  <script src="{{ asset('js/frontend/functions/select2/customer.js')}}" type="text/javascript"></script>
+@endpush
