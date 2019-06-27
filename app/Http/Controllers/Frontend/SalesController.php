@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
+use App\Models\Product;
 
 class SalesController extends Controller
 {
@@ -24,7 +26,13 @@ class SalesController extends Controller
      */
     public function create()
     {
-        return view('frontend.sales.create');
+        $customers = Customer::all();
+        $products = Product::all();
+        return view('frontend.sales.create',
+        [
+            'customers' => $customers,
+            'products' => $products
+        ]);
     }
 
     /**
