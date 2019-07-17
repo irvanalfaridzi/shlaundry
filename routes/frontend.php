@@ -1,9 +1,27 @@
 <?php
 
+
+Route::name('frontend.')->group(function () {
+  Route::group([
+
+    'middleware'    => ['auth','checkRole:Admin'],
+    'namespace'     => 'Frontend'
+
+  ], function () {
+
+    Route::resource('employee', 'EmployeeController');
+
+    Route::resource('user', 'UserController');
+
+    Route::resource('role', 'RoleController');
+    
+  });
+});
+
 Route::name('frontend.')->group(function () {
     Route::group([
   
-      'middleware'    => 'auth',
+      'middleware'    => ['auth','checkRole:Admin,Cashier'],
       'namespace'     => 'Frontend'
   
     ], function () {
@@ -31,12 +49,6 @@ Route::name('frontend.')->group(function () {
       Route::resource('sales', 'SalesController');
 
       Route::resource('purchase', 'PurchaseController');
-
-      Route::resource('employee', 'EmployeeController');
-
-      Route::resource('user', 'UserController');
-
-      Route::resource('role', 'RoleController');
 
       // Route::resource('appointment', 'AppointmentController');
       
