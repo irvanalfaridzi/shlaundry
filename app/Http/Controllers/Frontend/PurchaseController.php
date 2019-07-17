@@ -84,7 +84,15 @@ class PurchaseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $purchase = Purchase::find($id);
+        $products = Product::all();
+        $suppliers = Supplier::all();
+        return view('frontend.purchase.edit',
+        [
+            'purchase'=>$purchase,
+            'products' => $products,
+            'suppliers' => $suppliers,      
+        ]);
     }
 
     /**
@@ -96,7 +104,24 @@ class PurchaseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $productstock = Product::select('stock')->where('id', $request->product_id)->first()->stock;
+        $productsstock = Purchase::select('stock')->where('id', $id)->first()->stock;
+
+        if($productsstock < $request->stock){
+            $resultstock = $productstock + ($request->stock - $productsstock);
+        }elseif($productsstock > $request->stock){
+            $resultstock =  $productstock - ($productsstock - $request->stock);
+        }elseif($productsstock == $request->stock){
+            $resultstock = $productsstock;
+        }
+
+        
+        Product::where('id', $request->product_id)->update(array('stock' => $resultstock));
+
+        Purchase::where('id', $id)->update(array('stock' => $request->stock));
+
+
+        return redirect('purchase')->with('success', 'Data telah terkirim');
     }
 
     /**

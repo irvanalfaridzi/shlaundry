@@ -1,7 +1,7 @@
 <!-- Argon Scripts -->
 <!-- Core -->
-<script src="{{ asset('assets/argon/js/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
 <script src="{{ asset('assets/argon/vendor/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{ asset('assets/argon/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
 <!-- Optional JS -->
 <script src="{{ asset('assets/argon/vendor/chart.js/dist/Chart.min.js')}}"></script>
