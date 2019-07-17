@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Product;
+use App\Models\Supplier;
+use App\Models\Purchase;
 
 class PurchaseController extends Controller
 {
@@ -14,7 +17,10 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        //
+        $purchases = Purchase::all();
+        return view('frontend.purchase.index',[
+            'purchases' => $purchases,
+        ]);
     }
 
     /**
@@ -24,7 +30,12 @@ class PurchaseController extends Controller
      */
     public function create()
     {
-        //
+        $products = Product::all();
+        $suppliers = Supplier::all();
+        return view('frontend.purchase.create',[
+            'products'=> $products,
+            'suppliers'=> $suppliers,
+        ]);
     }
 
     /**
@@ -34,8 +45,24 @@ class PurchaseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $productstock = Product::select('stock')->where('id', $request->product_id)->first()->stock+$request->stock;
+
+        $originalDate = $request->dates;
+        $date = date("Y-m-d", strtotime($originalDate));
+
+        Purchase::create([
+            'product_id'    => $request->product_id,
+            'supplier_id'   => $request->supplier_id,
+            'stock'         => $request->stock,
+            'date'          => $date,
+            'note'          => $request->note,
+        ]);   
+        
+        Product::where('id', $request->product_id)->update(array('stock' => $productstock));
+
+
+        return redirect('purchase')->with('success', 'Data telah terkirim');
     }
 
     /**

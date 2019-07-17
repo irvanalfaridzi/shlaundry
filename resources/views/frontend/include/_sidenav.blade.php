@@ -148,7 +148,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
+                    <a class="nav-link  {{ request()->is('purchase*') ? 'active' : '' }}" href="{{ route('frontend.purchase.index')}}">
                         <i class="ni ni-bag-17 text-danger"></i> Purchases
                     </a>
                 </li>

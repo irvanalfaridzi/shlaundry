@@ -22,4 +22,10 @@ class Supplier extends MasterModel
         'address',
         'note',
     ];
+
+
+    public function purchase()
+    {
+        return $this->hasMany(purchase::class);
+    }
 }

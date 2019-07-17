@@ -27,4 +27,9 @@ class Product extends MasterModel
     {
         return $this->belongsTo(ProductUnit::class);
     }
+
+    public function purchase()
+    {
+        return $this->hasMany(purchase::class);
+    }
 }
