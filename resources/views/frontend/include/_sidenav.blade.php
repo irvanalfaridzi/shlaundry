@@ -153,7 +153,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
+                    <a class="nav-link" href="#">
                         <i class="ni ni-planet text-green"></i> Appoinment
                     </a>
                 </li>
@@ -164,13 +164,8 @@
             <!-- Navigation -->
             <ul class="navbar-nav mb-md-3">
                 <li class="nav-item">
-                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
+                    <a class="nav-link" href="#">
                         <i class="ni ni-single-copy-04 text-primary"></i> Reports
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
-                        <i class="ni ni-user-run text-green"></i> Logout
                     </a>
                 </li>
             </ul>
