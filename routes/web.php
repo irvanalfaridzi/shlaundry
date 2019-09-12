@@ -1,6 +1,6 @@
 <?php
 
-Auth::routes();
+Auth::routes(['register'=>false]);
 
 
 Route::redirect('/', '/dashboard', 301);
