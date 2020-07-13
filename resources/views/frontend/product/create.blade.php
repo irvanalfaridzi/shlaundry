@@ -10,7 +10,7 @@
       <div class="card-header bg-white border-0">
         <div class="row align-items-center">
           <div class="col-8">
-            <h3 class="mb-0">Add Items</h3>
+            <h3 class="mb-0">Add Kostum</h3>
           </div>
         </div>
       </div>
@@ -49,22 +49,18 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="form-control-label" for="input-first-name">Unit</label>
-                            <select id="unit" class="form-control form-control-alternative" name="unit_id">
-                                @foreach ($productUnits as $unit)
-                                    <option value="{{ $unit->id }}">{{ $unit->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
                             <label class="form-control-label" for="input-first-name">Category</label>
                             <select id="category" class="form-control form-control-alternative" name="category_id">
                                 @foreach ($productCategories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                        <label class="form-control-label" for="input-first-name">Stock</label>
+                        <input type="number" name="stock" id="stock" class="form-control form-control-alternative" placeholder="Stock">
                         </div>
                     </div>
                 </div>

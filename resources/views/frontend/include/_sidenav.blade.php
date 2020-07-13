@@ -7,7 +7,8 @@
         </button>
         <!-- Brand -->
         <a class="navbar-brand pt-0" href="/dashboard">
-            <h1 class="text-primary font-weight-bold">SHCleanerz</h1>
+            <img style="" src="{{ asset('assets/argon/img/brand/Logo_ChandikAyu.jpg')}}" alt="">
+            Candhik Ayu
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
@@ -103,45 +104,45 @@
             <ul class="navbar-nav mb-md-3">
                 @if(Auth::user()->role->name == "Admin")
                 <li class="nav-item">
+                    <a class="nav-link {{ request()->is('user*') ? 'active' : '' }}" href="{{ route('frontend.user.index')}}">
+                        <i class="ni ni-circle-08 text-green"></i> Master Admin
+                    </a>
+                </li>
+                @endif
+                @if(Auth::user()->role->name == "Admin")
+                <li class="nav-item">
                     <a class="nav-link {{ request()->is('employee*') ? 'active' : '' }}" href="{{ route('frontend.employee.index')}}">
-                        <i class="ni ni-badge text-pink"></i> Employees
+                        <i class="ni ni-badge text-pink"></i> Master Karyawan
                     </a>
                 </li>
                 @endif
                 <li class="nav-item">
                     <a class="nav-link {{ request()->is('customer*') ? 'active' : '' }}" href="{{ route('frontend.customer.index')}}">
-                        <i class="ni ni-spaceship text-red"></i> Customers
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->is('supplier*') ? 'active' : '' }}" href="{{ route('frontend.supplier.index')}}">
-                        <i class="ni ni-badge text-green"></i> Suppliers
+                        <i class="ni ni-single-02 text-red"></i> Master Member
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->is('product*') ? 'active' : '' }}" href="{{ route('frontend.product.index')}}">
-                        <i class="ni ni-app text-red"></i> Products
+                        <i class="ni ni-app text-red"></i> Master Kostum Tari
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
+                    <a class="nav-link {{ request()->is('supplier*') ? 'active' : '' }}" href="{{ route('frontend.supplier.index')}}">
+                        <i class="ni ni-badge text-green"></i> Suppliers
+                    </a>
+                </li> -->
+                <!-- <li class="nav-item">
                     <a class="nav-link {{ request()->is('service*') ? 'active' : '' }}" href="{{ route('frontend.service.index')}}">
                         <i class="ni ni-briefcase-24 text-yellow"></i> Services
                     </a>
-                </li>
-                @if(Auth::user()->role->name == "Admin")
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->is('user*') ? 'active' : '' }}" href="{{ route('frontend.user.index')}}">
-                        <i class="ni ni-circle-08 text-green"></i> Users
-                    </a>
-                </li>
-                @endif
+                </li> -->
             </ul>
             <!-- Divider -->
-            <hr class="my-3">
+            <!-- <hr class="my-3"> -->
             <!-- Heading -->
-            <h6 class="navbar-heading text-muted">Transaction</h6>
+            <!-- <h6 class="navbar-heading text-muted">Transaction</h6> -->
             <!-- Navigation -->
-            <ul class="navbar-nav mb-md-3">
+            <!-- <ul class="navbar-nav mb-md-3">
                 <li class="nav-item">
                     <a class="nav-link {{ request()->is('sales*') ? 'active' : '' }}" href="{{ route('frontend.sales.index')}}">
                         <i class="ni ni-cart text-primary"></i> Sales
@@ -157,18 +158,18 @@
                         <i class="ni ni-planet text-green"></i> Appoinment
                     </a>
                 </li>
-            </ul>
+            </ul> -->
 
             <!-- Divider -->
-            <hr class="my-3">
+            <!-- <hr class="my-3"> -->
             <!-- Navigation -->
-            <ul class="navbar-nav mb-md-3">
+            <!-- <ul class="navbar-nav mb-md-3">
                 <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="ni ni-single-copy-04 text-primary"></i> Reports
                     </a>
                 </li>
-            </ul>
+            </ul> -->
 
         </div>
     </div>

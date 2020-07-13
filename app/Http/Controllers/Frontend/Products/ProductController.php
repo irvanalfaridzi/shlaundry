@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
-use App\Models\ProductUnit;
 
 class ProductController extends Controller
 {
@@ -19,11 +18,9 @@ class ProductController extends Controller
     {
         $products = Product::all();
         $productCategories = ProductCategory::all();
-        $productUnits= ProductUnit::all();
         return view('frontend.product.index',[
             'products'=> $products,
-            'productCategories'=> $productCategories,
-            'productUnits'=> $productUnits
+            'productCategories'=> $productCategories
         ]);
     }
 
@@ -41,13 +38,11 @@ class ProductController extends Controller
         } while(!empty($code));
 
         $productCategories = ProductCategory::all();
-        $productUnits= ProductUnit::all();
 
         return view('frontend.product.create',
         [
             'generatecode'=>$generatecode,
-            'productCategories'=> $productCategories,
-            'productUnits'=> $productUnits
+            'productCategories'=> $productCategories
         ]);
     }
 
@@ -85,13 +80,11 @@ class ProductController extends Controller
         $product = Product::find($id);
 
         $productCategories = ProductCategory::all();
-        $productUnits= ProductUnit::all();
         
         return view('frontend.product.edit',
         [
             'product'=>$product,
-            'productCategories'=> $productCategories,
-            'productUnits'=> $productUnits
+            'productCategories'=> $productCategories
         ]);
     }
 
@@ -114,8 +107,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Product $product, Request $request)
     {
+        $product = Product::findOrFail($request->id);
         $product->delete();
         return redirect()->route('frontend.product.index')->with(['success' => 'Data berhasil dihapus']);
     }

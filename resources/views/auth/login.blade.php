@@ -6,7 +6,7 @@
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
       <div class="container px-4">
         <a class="navbar-brand" href="../index.html">
-          <h1 class="text-white font-weight-bold">SHCleanerz</h1>
+          <h1 class="text-white font-weight-bold">Candhik Ayu</h1>
         </a>
       </div>
     </nav>
@@ -23,8 +23,9 @@
           <div class="card bg-secondary shadow border-0">
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
+                <img style="height:100px;width:90px" src="{{ asset('assets/argon/img/brand/Logo_ChandikAyu.jpg')}}" alt=""><br>
                 <small>
-                  Please fill in correctly 
+                  Login Admin 
                 </small>
               </div>
               <form role="form" method="POST" action="{{ route('login') }}">
@@ -59,7 +60,7 @@
                 </div>
                 <div class="row">
                   <div class="col-12">
-                      <button type="submit" class="btn btn-primary my-4" style="width:100%;">Sign in</button>
+                      <button type="submit" class="btn btn-primary my-4" style="width:100%;">Masuk</button>
                   </div>
                 </div>
               </form>
@@ -74,7 +75,7 @@
     <div class="row align-items-center justify-content-xl-between">
     <div class="col-xl-6">
         <div class="copyright text-center text-xl-left text-muted">
-        &copy; 2019 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Ibnu Pratama</a>
+        &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Irvan Alfaridzi</a>
         </div>
     </div>
     </div>

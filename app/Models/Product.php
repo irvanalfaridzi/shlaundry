@@ -12,7 +12,6 @@ class Product extends MasterModel
     protected $fillable = [
         'code',
         'name',
-        'unit_id',
         'category_id',
         'price',
         'stock',
@@ -21,11 +20,6 @@ class Product extends MasterModel
     public function category()
     {
         return $this->belongsTo(ProductCategory::class);
-    }
-
-    public function unit()
-    {
-        return $this->belongsTo(ProductUnit::class);
     }
 
     public function purchase()

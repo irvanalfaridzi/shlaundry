@@ -40,7 +40,6 @@ Route::name('frontend.')->group(function () {
       Route::namespace('Products')->group(function () {  
         Route::resource('product', 'ProductController');
         Route::resource('product-categories', 'ProductCategoriesController');
-        Route::resource('product-units', 'ProductUnitsController');
       });
 
 

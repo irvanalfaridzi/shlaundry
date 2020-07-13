@@ -11,10 +11,10 @@
             <div class="card-header bg-white border-0">
             <div class="row align-items-center">
                 <div class="col-8">
-                <h3 class="mb-0">User</h3>
+                <h3 class="mb-0">Master Admin</h3>
                 </div>
                 <div class="col-4 text-right">
-                <a href="{{ route('frontend.user.create')}}" class="btn btn-sm btn-primary">Add User</a>
+                <a href="{{ route('frontend.user.create')}}" class="btn btn-sm btn-primary">Add Admin</a>
                 </div>
             </div>
             </div>
