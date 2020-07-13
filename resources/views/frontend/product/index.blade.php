@@ -156,16 +156,6 @@
                                                     <p>when you delete your data, you will get a lost your data</p>
                                                 </div>
                                             </div>
-                                            
-                                            <!-- <div class="modal-footer">
-                                                <form action="{{ route('frontend.product-categories.destroy','delete')}}" method="POST">
-                                                    <input type="hidden" name="_method" value="Delete">
-                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <input type="hidden" name="id" id="id">
-                                                    <input type="submit" class="btn btn-white" value="Ok, Got it">
-                                                </form>
-                                                <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Close</button> 
-                                            </div> -->
 
                                             <div class="modal-footer">
                                                 <form action="{{ route('frontend.product.destroy',[$product->id])}}" method="POST">
