@@ -54,15 +54,9 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-
+    {       
         $this->validate($request, [
             'file' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
-            'code'  => 'required',
-            'name' => 'required',
-            'category_id' => 'required',
-            'price' => 'required',
-            'stock' => 'required',
         ]);
 
         // menyimpan data file yang diupload ke variabel $file
@@ -73,16 +67,9 @@ class ProductController extends Controller
         // isi dengan nama folder tempat kemana file diupload
 		$tujuan_upload = 'data_file';
 		$file->move($tujuan_upload,$nama_file);
-        
-        Product::create([
-            'file' => $nama_file,
-            'code' => $request->code,
-            'name' => $request->name,
-            'category_id' => $request->category_id,
-            'price' => $request->price,
-            'stock' => $request->stock,
-        ]);
 
+        Product::create( $request->all());
+        
         return redirect('product')->with('success', 'Data telah terkirim');
     }
 

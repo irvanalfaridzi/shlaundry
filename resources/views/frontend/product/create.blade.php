@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="card-body">
-        <form action="{{ route('frontend.product.store')}}" method="POST">
+        <form action="{{ route('frontend.product.store')}}" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="pl-lg-4">
                 <div class="row">
