@@ -27,6 +27,12 @@
                                 <input name="stock" type="text" class="form-control form-control-alternative" hidden value="0">
                             </div>
                     </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="file-gambar">File Gambar</label>
+                            <input name="file" type="file" id="file-gambar" class="form-control form-control-alternative" placeholder="File Gambar">
+					    </div>
+                    </div>
                 </div>
             </div>  
             <hr class="my-4">
@@ -75,7 +81,7 @@
                 <button class="btn btn-icon btn-3 btn-secondary" type="button">
                     <span class="btn-inner--icon"><i class="ni ni-bold-left"></i></span>
                     
-                    <span class="btn-inner--text">Back</span>   
+                    <a href="{{ route('frontend.product.index')}}"><span class="btn-inner--text">Back</span></a>   
                 </button>                        
             </div>
         </form>

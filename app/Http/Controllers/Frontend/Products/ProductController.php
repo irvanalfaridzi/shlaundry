@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use File;
 
 class ProductController extends Controller
 {
@@ -54,7 +55,34 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        Product::create($request->all());
+
+        $this->validate($request, [
+            'file' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+            'code'  => 'required',
+            'name' => 'required',
+            'category_id' => 'required',
+            'price' => 'required',
+            'stock' => 'required',
+        ]);
+
+        // menyimpan data file yang diupload ke variabel $file
+        $file = $request->file('file');
+        
+        $nama_file = time()."_".$file->getClientOriginalName();
+
+        // isi dengan nama folder tempat kemana file diupload
+		$tujuan_upload = 'data_file';
+		$file->move($tujuan_upload,$nama_file);
+        
+        Product::create([
+            'file' => $nama_file,
+            'code' => $request->code,
+            'name' => $request->name,
+            'category_id' => $request->category_id,
+            'price' => $request->price,
+            'stock' => $request->stock,
+        ]);
+
         return redirect('product')->with('success', 'Data telah terkirim');
     }
 

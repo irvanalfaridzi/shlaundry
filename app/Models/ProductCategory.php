@@ -6,7 +6,7 @@ use App\MasterModel;
 
 class ProductCategory extends MasterModel
 {
-    protected $table= 'product_category';
+    protected $table= 'jenis_kostum';
     protected $gruarderd= ['id'];
 
     protected $fillable = [

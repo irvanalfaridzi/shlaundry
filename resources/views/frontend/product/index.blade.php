@@ -106,6 +106,7 @@
                         <thead>
                             <tr>
                                 <th>Code</th>
+                                <th>Gambar</th>
                                 <th>Name</th>
                                 <th>Category</th>
                                 <th>Price</th>
@@ -117,6 +118,7 @@
                             @foreach ($products as $product)
                             <tr>
                                 <td>{{ $product->code }}</td>
+                                <td><img width="150px" src="" alt=""></td>
                                 <td>{{ $product->name }}</td>
                                 <td>
                                     @if(isset($product->category->name))
