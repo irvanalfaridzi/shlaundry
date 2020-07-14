@@ -118,7 +118,7 @@
                             @foreach ($products as $product)
                             <tr>
                                 <td>{{ $product->code }}</td>
-                                <td><img width="150px" src="" alt=""></td>
+                                <td><img width="150px" src="{{ asset('data_file/'.$product->file) }}" alt=""></td>
                                 <td>{{ $product->name }}</td>
                                 <td>
                                     @if(isset($product->category->name))

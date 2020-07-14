@@ -66,9 +66,17 @@ class ProductController extends Controller
 
         // isi dengan nama folder tempat kemana file diupload
 		$tujuan_upload = 'data_file';
-		$file->move($tujuan_upload,$nama_file);
-
-        Product::create( $request->all());
+        $file->move($tujuan_upload,$nama_file);
+        
+        // Product::create( $request->all());
+        Product::create([
+			'file' => $nama_file,
+            'code' => $request->code,
+            'name' => $request->name,
+            'category_id' => $request->category_id,
+            'price' => $request->price,
+            'stock' => $request->stock
+		]);
         
         return redirect('product')->with('success', 'Data telah terkirim');
     }
