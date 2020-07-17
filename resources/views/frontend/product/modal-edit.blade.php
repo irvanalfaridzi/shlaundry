@@ -19,7 +19,7 @@
                                         <span class="input-group-text"><i class="ni ni-spaceship"></i></span>
                                     </div>
                                     <input type="hidden" name="id" id="id">
-                                    <input class="form-control" placeholder="Name" id="name" name="name" type="text">
+                                    <input class="form-control" placeholder="Name" id="name" name="name" type="text" value="{{ $product->name}}">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-control-label" for="input-first-name">Jenis Kostum</label>

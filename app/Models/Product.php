@@ -10,7 +10,6 @@ class Product extends MasterModel
     protected $gruarderd= ['id'];
 
     protected $fillable = [
-        'code',
         'name',
         'category_id',
     ];
