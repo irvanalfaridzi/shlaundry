@@ -13,7 +13,7 @@ let Products = {
 
         });
 
-        $('#modalEdit-unit').on('show.bs.modal', function (event){
+        $('#modalEdit-product').on('show.bs.modal', function (event){
             
             var button = $(event.relatedTarget);
             var name = button.data('name');
@@ -37,7 +37,7 @@ let Products = {
 
         });
 
-        $('#modalDelete-unit').on('show.bs.modal', function (event){
+        $('#modalDelete-product').on('show.bs.modal', function (event){
             
             var button = $(event.relatedTarget);
             var id = button.data('id');

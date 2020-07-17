@@ -5,7 +5,7 @@
 @endsection
 
 @section('content-body')
-<div class="row">
+<div class="row mt-5">
     <div class="col-xl-12 col-md-12 col-sm-12 order-xl-1">
         <div class="card bg-secondary shadow">
             <div class="card-header bg-white border-0">
@@ -114,6 +114,7 @@
                                 <th>No</th>
                                 <th>Name</th>
                                 <th>Category</th>
+                                <th>status</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -129,6 +130,7 @@
                                     -
                                     @endif
                                 </td>
+                                <td>{{ $product->status}}</td>
                                 <td class="text-right">
                                     <div class="dropdown">
                                         <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -136,13 +138,13 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                             <a class="dropdown-item" data-toggle="modal" data-id="{{$product->id}}" data-name="{{$product->name}}" data-target="#modalEdit-product">Edit</a>
-                                            <a class="dropdown-item" data-toggle="modal" data-id="{{$product->id}}" data-target="#modal-product">Delete</a>
-                                            <input type="hidden" name="id" id="id" value="{{$product->id}}">
+                                            <a class="dropdown-item" data-toggle="modal" data-id="{{$product->id}}" data-target="#modalDelete-product">Delete</a>
+                                            <input type="" name="id" id="id" value="{{$product->id}}">
                                         </div>
                                         @include('frontend.product.modal-edit')
                                     </div>
                                 </td>
-                                <div class="modal fade" id="modal-product" tabindex="-1" role="dialog" aria-labelledby="modal-product" aria-hidden="true">
+                                <div class="modal fade" id="modalDelete-product" tabindex="-1" role="dialog" aria-labelledby="modalDelete-product" aria-hidden="true">
                                     <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
                                         <div class="modal-content bg-gradient-danger">
                                             
@@ -161,8 +163,8 @@
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <form action="{{ route('frontend.product.destroy',[$product->id],'delete')}}" method="POST">
-                                                    <input type="hidden" name="id" id="id" value="{{$product->id}}">
+                                                <form action="{{ route('frontend.product.destroy',[$product->id])}}" method="POST">
+                                                    <input type="" name="id" id="id" value="{{$product->id}}">
                                                     <input type="hidden" name="_method" value="Delete">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <input type="submit" class="btn btn-white" value="Ok, Got it">

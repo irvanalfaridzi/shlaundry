@@ -12,6 +12,7 @@ class Product extends MasterModel
     protected $fillable = [
         'name',
         'category_id',
+        'status'
     ];
 
     public function category()

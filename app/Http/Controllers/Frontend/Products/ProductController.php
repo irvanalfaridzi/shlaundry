@@ -120,7 +120,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product, Request $request)
     {
-        // $product = Product::findOrFail($request->id);
+        // dd($request->id);
+        $product = Product::findOrFail($request->id);
         $product->delete();
         return redirect()->route('frontend.product.index')->with(['success' => 'Data berhasil dihapus']);
     }

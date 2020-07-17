@@ -28,6 +28,7 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <input type="hidden" class="form-control" placeholder="status" name="status" value="Available">
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary my-4">Create</button>
                             </div>
