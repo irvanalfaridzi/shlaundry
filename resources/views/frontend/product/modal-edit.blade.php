@@ -1,4 +1,3 @@
-//modal-edit
 <div class="modal fade" id="modalEdit-product" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
     <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">   

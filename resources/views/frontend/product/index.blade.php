@@ -14,7 +14,7 @@
                         <h3 class="mb-0">Jenis Kostum</h3>
                     </div>
                     <div class="text-right col-4">
-                        <a href="{{ route('frontend.product.category.create')}}" class="btn btn-sm btn-primary">Add Jenis</a>
+                        <a href="{{ route('frontend.product-categories.create')}}" class="btn btn-sm btn-primary">Add Jenis</a>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="{{ route('frontend.product.category.edit',[$category->id])}}">Edit</a>
+                                            <a class="dropdown-item" href="{{ route('frontend.product-categories.edit',[$category->id])}}">Edit</a>
                                             <a class="dropdown-item" data-toggle="modal" data-id="{{$category->id}}" data-target="#modalDelete-category">Delete</a>
                                         </div>
                                     </div>
@@ -110,7 +110,6 @@
                     <table id="products_table" class="table table-striped table-bordered second" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Code</th>
                                 <th>Name</th>
                                 <th>Category</th>
                                 <th></th>
@@ -119,7 +118,6 @@
                         <tbody>
                             @foreach ($products as $product)
                             <tr>
-                                <td>{{ $product->code }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>
                                     @if(isset($product->category->name))
@@ -160,7 +158,7 @@
                                             </div>
 
                                             <div class="modal-footer">
-                                                <form action="{{ route('frontend.product.destroy',[$product->id])}}" method="POST">
+                                                <form action="{{ route('frontend.product.destroy','delete')}}" method="POST">
                                                     <input type="hidden" name="_method" value="Delete">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <input type="hidden" name="id" id="id">

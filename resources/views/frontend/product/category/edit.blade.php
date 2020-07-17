@@ -33,23 +33,13 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label class="form-control-label" for="input-name">Name</label>
-                        <input name="name" type="text" id="input-name" class="form-control form-control-alternative" placeholder="Item name" value="{{ $category->name }}">
+                        <input name="name" type="text" id="input-name" class="form-control form-control-alternative" placeholder="Item name" value="{{ $productCategory->name }}">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label class="form-control-label" for="input-first-name">Price</label>
-                        <input type="number" name="price" id="price" class="form-control form-control-alternative" placeholder="Price" value="{{ $category->price }}">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                        <label class="form-control-label" for="input-first-name">Stock</label>
-                        <input type="number" name="stock" id="stock" class="form-control form-control-alternative" placeholder="Stock" value="{{ $category->stock }}">
+                        <input type="number" name="price" id="price" class="form-control form-control-alternative" placeholder="Price" value="{{ $productCategory->price }}">
                         </div>
                     </div>
                 </div>
@@ -64,7 +54,7 @@
                 <button class="btn btn-icon btn-3 btn-secondary" type="button">
                     <span class="btn-inner--icon"><i class="ni ni-bold-left"></i></span>
                     
-                    <span class="btn-inner--text">Back</span>   
+                    <a href="{{ route('frontend.product.index')}}"><span class="btn-inner--text">Back</span></a>   
                 </button>                        
             </div>
         </form>

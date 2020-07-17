@@ -44,14 +44,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                        <label class="form-control-label" for="input-first-name">Stock</label>
-                        <input type="number" name="stock" id="stock" class="form-control form-control-alternative" placeholder="Stock">
-                        </div>
-                    </div>
-                </div>
             </div>
             <hr class="my-4" />
             <div class="col-12 text-right">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend\Products;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ProductCategory;
+use File;
 
 class ProductCategoriesController extends Controller
 {
@@ -25,7 +26,7 @@ class ProductCategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('frontend.product.category.create');
     }
 
     /**
