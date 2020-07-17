@@ -6,7 +6,7 @@
 
 @section('content-body')
 <div class="row">
-    <div class="col-xl-6 col-md-6 col-sm-6 order-xl-1">
+    <div class="col-xl-12 col-md-12 col-sm-12 order-xl-1">
         <div class="card bg-secondary shadow">
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
@@ -14,8 +14,7 @@
                         <h3 class="mb-0">Jenis Kostum</h3>
                     </div>
                     <div class="text-right col-4">
-                        <a data-toggle="modal" data-target="#modalCreate-category" class="btn btn-sm btn-primary text-white">Add Jenis</a>
-                        @include('frontend.product.category.modal-create')
+                        <a href="{{ route('frontend.product.category.create')}}" class="btn btn-sm btn-primary">Add Jenis</a>
                     </div>
                 </div>
             </div>
@@ -26,6 +25,9 @@
                             <tr>
                                 <th>No</th>
                                 <th>Name</th>
+                                <th>price</th>
+                                <th>stock</th>
+                                <th>file</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -34,16 +36,18 @@
                             <tr>
                                 <td>{{ $category->id }}</td>
                                 <td>{{ $category->name }}</td>
+                                <td>Rp. {{ number_format($category->price,2,",",".") }}</td>
+                                <td>{{ $category->stock }}</td>
+                                <td><img width="150px" src="{{ asset('data_file/'.$category->file) }}" alt=""></td>
                                 <td class="text-right">
                                     <div class="dropdown">
                                         <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" data-toggle="modal" data-id="{{$category->id}}" data-name="{{$category->name}}" data-target="#modalEdit-category">Edit</a>
+                                            <a class="dropdown-item" href="{{ route('frontend.product.category.edit',[$category->id])}}">Edit</a>
                                             <a class="dropdown-item" data-toggle="modal" data-id="{{$category->id}}" data-target="#modalDelete-category">Delete</a>
                                         </div>
-                                        @include('frontend.product.category.modal-edit')
                                     </div>
                                 </td>
                                 <div class="modal fade" id="modalDelete-category" tabindex="-1" role="dialog" aria-labelledby="modalDelete-category" aria-hidden="true">
@@ -96,7 +100,8 @@
                     <h3 class="mb-0">Kostum</h3>
                 </div>
                 <div class="text-right col-4">
-                <a href="{{ route('frontend.product.create')}}" class="btn btn-sm btn-primary">Add Kostum</a>
+                <a data-toggle="modal" data-target="#modalCreate-product" class="btn btn-sm btn-primary text-white">Add Kostum</a>
+                @include('frontend.product.modal-create')
                 </div>
                 </div>
             </div>
@@ -106,11 +111,8 @@
                         <thead>
                             <tr>
                                 <th>Code</th>
-                                <th>Gambar</th>
                                 <th>Name</th>
                                 <th>Category</th>
-                                <th>Price</th>
-                                <th>Stock</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -118,7 +120,6 @@
                             @foreach ($products as $product)
                             <tr>
                                 <td>{{ $product->code }}</td>
-                                <td><img width="150px" src="{{ asset('data_file/'.$product->file) }}" alt=""></td>
                                 <td>{{ $product->name }}</td>
                                 <td>
                                     @if(isset($product->category->name))
@@ -127,17 +128,16 @@
                                     -
                                     @endif
                                 </td>
-                                <td>Rp. {{ number_format($product->price,2,",",".") }}</td>
-                                <td>{{ $product->stock }}</td>
                                 <td class="text-right">
                                     <div class="dropdown">
                                         <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="{{ route('frontend.product.edit',[$product->id])}}">Edit</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-id="{{$product->id}}" data-name="{{$product->name}}" data-target="#modalEdit-product">Edit</a>
                                             <a class="dropdown-item" data-toggle="modal" data-id="{{$product->id}}" data-target="#modal-product">Delete</a>
                                         </div>
+                                        @include('frontend.product.modal-edit')
                                     </div>
                                 </td>
                                 <div class="modal fade" id="modal-product" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">

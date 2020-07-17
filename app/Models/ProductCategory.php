@@ -11,6 +11,9 @@ class ProductCategory extends MasterModel
 
     protected $fillable = [
         'name',
+        'price',
+        'stock',
+        'file'
     ];
 
     public function service()

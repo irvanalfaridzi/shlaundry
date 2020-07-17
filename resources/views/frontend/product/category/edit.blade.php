@@ -10,24 +10,20 @@
       <div class="card-header bg-white border-0">
         <div class="row align-items-center">
           <div class="col-8">
-            <h3 class="mb-0">Add Kostum</h3>
+            <h3 class="mb-0">Add Jenis Kostum</h3>
           </div>
         </div>
       </div>
       <div class="card-body">
-        <form action="{{ route('frontend.product.update',[$product->id])}}" method="POST">
+        <form action="{{ route('frontend.product-categories.update','update')}}" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
             {{ method_field('PUT')}} 
             <div class="pl-lg-4">
                 <div class="row">
-                    <div class="col-lg-6">
-                            <div class="form-group">
-                                <label class="form-control-label" for="input-first-name">Code Item</label>
-                                <input type="text" id="input-code" class="form-control form-control-alternative" value="{{ $product->code }}" disabled>
-                                <input name="code" type="text" class="form-control form-control-alternative" hidden value="{{ $product->code }}">
-                                <input name="stock" type="text" class="form-control form-control-alternative" hidden value="{{ $product->stock }}">
-                            </div>
-                    </div>
+                    <div class="form-group">
+                            <label class="form-control-label" for="file-gambar">File Gambar</label>
+                            <input name="file" type="file" id="file-gambar" class="form-control form-control-alternative" placeholder="File Gambar">
+					    </div>
                 </div>
             </div>  
             <hr class="my-4">
@@ -37,31 +33,23 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label class="form-control-label" for="input-name">Name</label>
-                        <input name="name" type="text" id="input-name" class="form-control form-control-alternative" placeholder="Item name" value="{{ $product->name }}">
+                        <input name="name" type="text" id="input-name" class="form-control form-control-alternative" placeholder="Item name" value="{{ $category->name }}">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label class="form-control-label" for="input-first-name">Price</label>
-                        <input type="number" name="price" id="price" class="form-control form-control-alternative" placeholder="Price" value="{{ $product->price }}">
+                        <input type="number" name="price" id="price" class="form-control form-control-alternative" placeholder="Price" value="{{ $category->price }}">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="form-group">
-                            <label class="form-control-label" for="input-first-name">Category</label>
-                            <select id="category" class="form-control form-control-alternative" name="category_id">
-                                @foreach ($productCategories as $category)
-                                    <option value="{{ $category->id }}" @if($product->category_id == $category->id) selected @endif>{{ $category->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label class="form-control-label" for="input-first-name">Stock</label>
-                        <input type="number" name="stock" id="stock" class="form-control form-control-alternative" placeholder="Stock" value="{{ $product->stock }}">
+                        <input type="number" name="stock" id="stock" class="form-control form-control-alternative" placeholder="Stock" value="{{ $category->stock }}">
                         </div>
                     </div>
                 </div>

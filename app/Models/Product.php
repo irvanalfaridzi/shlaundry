@@ -13,9 +13,6 @@ class Product extends MasterModel
         'code',
         'name',
         'category_id',
-        'price',
-        'stock',
-        'file'
     ];
 
     public function category()

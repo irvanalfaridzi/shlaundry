@@ -10,23 +10,15 @@
       <div class="card-header bg-white border-0">
         <div class="row align-items-center">
           <div class="col-8">
-            <h3 class="mb-0">Add Kostum</h3>
+            <h3 class="mb-0">Add Jenis Kostum</h3>
           </div>
         </div>
       </div>
       <div class="card-body">
-        <form action="{{ route('frontend.product.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('frontend.product-categories.store')}}" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="pl-lg-4">
                 <div class="row">
-                    <div class="col-lg-6">
-                            <div class="form-group">
-                                <label class="form-control-label" for="input-first-name">Code Item</label>
-                                <input type="text" id="input-code" class="form-control form-control-alternative" value="{{ $generatecode }}" disabled>
-                                <input name="code" type="text" class="form-control form-control-alternative" hidden value="{{ $generatecode }}">
-                                <input name="stock" type="text" class="form-control form-control-alternative" hidden value="0">
-                            </div>
-                    </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="form-control-label" for="file-gambar">File Gambar</label>
@@ -36,7 +28,7 @@
                 </div>
             </div>  
             <hr class="my-4">
-            <h6 class="heading-small text-muted mb-4">Item information</h6>
+            <h6 class="heading-small text-muted mb-4">Jenis Kostum information</h6>
             <div class="pl-lg-4">
                 <div class="row">
                     <div class="col-lg-6">
@@ -53,16 +45,6 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label class="form-control-label" for="input-first-name">Category</label>
-                            <select id="category" class="form-control form-control-alternative" name="category_id">
-                                @foreach ($productCategories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                         <label class="form-control-label" for="input-first-name">Stock</label>

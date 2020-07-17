@@ -36,7 +36,25 @@ class ProductCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        ProductCategory::create($request->all());
+        $this->validate($request, [
+            'file' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+
+        // menyimpan data file yang diupload ke variabel $file
+        $file = $request->file('file');
+        
+        $nama_file = time()."_".$file->getClientOriginalName();
+
+        // isi dengan nama folder tempat kemana file diupload
+		$tujuan_upload = 'data_file';
+        $file->move($tujuan_upload,$nama_file);
+
+        ProductCategory::create([
+            'file' => $nama_file,
+            'name' => $request->name,
+            'price' => $request->price,
+            'stock' => $request->stock
+        ]);
         return redirect('product')->with('success', 'Data telah terkirim');
     }
 
@@ -60,7 +78,7 @@ class ProductCategoriesController extends Controller
     public function edit($id)
     {
         $productCategory = ProductCategory::find($id);
-        return view('frontend.product.category.modal-edit',['productCategory'=>$productCategory]);
+        return view('frontend.product.category.edit',['productCategory'=>$productCategory]);
     }
 
     /**
