@@ -111,7 +111,7 @@
                     <table id="products_table" class="table table-striped table-bordered second" style="width:100%">
                         <thead>
                             <tr>
-                                <th>No</th>
+                                <th>id</th>
                                 <th>Name</th>
                                 <th>Category</th>
                                 <th>status</th>
@@ -121,7 +121,7 @@
                         <tbody>
                             @foreach ($products as $product)
                             <tr>
-                                <td>{{ $product->id }}</td>
+                                <th>{{ $product->id }}</th>
                                 <td>{{ $product->name }}</td>
                                 <td>
                                     @if(isset($product->category->name))
@@ -164,7 +164,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <form action="{{ route('frontend.product.destroy',[$product->id])}}" method="POST">
-                                                    <input type="" name="id" id="id" value="{{$product->id}}">
+                                                    <input type="hidden" name="id" id="id" value="{{$product->id}}">
                                                     <input type="hidden" name="_method" value="Delete">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <input type="submit" class="btn btn-white" value="Ok, Got it">

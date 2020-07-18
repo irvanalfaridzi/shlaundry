@@ -108,7 +108,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        $product->update($request->all());
+        $product = Product::findOrFail($request->id);
+        $product->update();
         return redirect('product')->with('success','Data telah terkirim');
     }
 
@@ -120,7 +121,6 @@ class ProductController extends Controller
      */
     public function destroy(Product $product, Request $request)
     {
-        // dd($request->id);
         $product = Product::findOrFail($request->id);
         $product->delete();
         return redirect()->route('frontend.product.index')->with(['success' => 'Data berhasil dihapus']);

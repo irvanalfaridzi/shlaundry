@@ -10,7 +10,7 @@
                         <div class="text-center text-muted mb-4">
                             <small>Please fill the box with the name of kostum</small>
                         </div>
-                        <form action="{{ route('frontend.product.update','update')}}" method="POST">
+                        <form action="{{ route('frontend.product.update',[$product->id])}}" method="POST">
                             {{csrf_field()}}
                             {{ method_field('PUT')}}   
                             <div class="form-group mb-3">

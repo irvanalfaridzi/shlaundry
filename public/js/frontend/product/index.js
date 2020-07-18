@@ -49,12 +49,8 @@ let Products = {
         });
 
         $('#categories_table').DataTable({
-            "scrollY": 200,
+            "scrollY": 400,
             "scrollX": true
-        });
-    
-        $('#units_table').DataTable({
-            "scrollY": 200,
         });
     
         $('#products_table').DataTable({
