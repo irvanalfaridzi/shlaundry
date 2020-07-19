@@ -55,7 +55,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {       
-        
+        $productCategories = ProductCategory::find($request->category_id);
+        $qty = $productCategories->stock;
+        $productCategories->stock = $qty + 1;
+        $productCategories->save();
+
         Product::create( $request->all());
         // Product::create([
 		// 	'file' => $nama_file,
@@ -92,7 +96,7 @@ class ProductController extends Controller
 
         $productCategories = ProductCategory::all();
         
-        return view('frontend.product.edit',
+        return view('frontend.product.modal-edit',
         [
             'product'=>$product,
             'productCategories'=> $productCategories
@@ -106,10 +110,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request)
     {
         $product = Product::findOrFail($request->id);
-        $product->update();
+        $product->update($request->all());
         return redirect('product')->with('success','Data telah terkirim');
     }
 
@@ -122,6 +126,12 @@ class ProductController extends Controller
     public function destroy(Product $product, Request $request)
     {
         $product = Product::findOrFail($request->id);
+
+        $productCategories = ProductCategory::find($product->category_id);
+        $qty = $productCategories->stock;
+        $productCategories->stock = $qty - 1;
+        $productCategories->save();
+
         $product->delete();
         return redirect()->route('frontend.product.index')->with(['success' => 'Data berhasil dihapus']);
     }

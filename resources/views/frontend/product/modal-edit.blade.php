@@ -10,7 +10,7 @@
                         <div class="text-center text-muted mb-4">
                             <small>Please fill the box with the name of kostum</small>
                         </div>
-                        <form action="{{ route('frontend.product.update',[$product->id])}}" method="POST">
+                        <form action="{{ route('frontend.product.update','update')}}" method="POST">
                             {{csrf_field()}}
                             {{ method_field('PUT')}}   
                             <div class="form-group mb-3">
@@ -18,8 +18,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-spaceship"></i></span>
                                     </div>
-                                    <input type="hidden" name="id" id="id">
-                                    <input class="form-control" placeholder="Name" id="name" name="name" type="text" value="{{ $product->name}}">
+                                    <input type="" name="id" id="id">
+                                    <input class="form-control" placeholder="Name" id="name" name="name" type="text">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="form-control-label" for="input-first-name">Jenis Kostum</label>

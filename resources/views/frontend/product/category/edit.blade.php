@@ -15,17 +15,9 @@
         </div>
       </div>
       <div class="card-body">
-        <form action="{{ route('frontend.product-categories.update',[$productCategory->id])}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('frontend.product-categories.update',[$productCategory->id])}}" method="POST">
             {{csrf_field()}}
             {{ method_field('PUT')}} 
-            <div class="pl-lg-4">
-                <div class="row">
-                    <div class="form-group">
-                      <label class="form-control-label" for="file-gambar">File Gambar</label>
-                      <input name="file" type="file" id="file-gambar" class="form-control form-control-alternative" placeholder="File Gambar">
-					          </div>
-                </div>
-            </div>  
             <hr class="my-4">
             <h6 class="heading-small text-muted mb-4">Item information</h6>
             <div class="pl-lg-4">
@@ -46,16 +38,8 @@
             </div>
             <hr class="my-4" />
             <div class="col-12 text-right">
-                <button class="btn btn-icon btn-3 btn-success">
-                    <span class="btn-inner--icon"><i class="ni ni-single-copy-04"></i></span>
-                    
-                    <span class="btn-inner--text">Save</span>   
-                </button>  
-                <button class="btn btn-icon btn-3 btn-secondary" type="button">
-                    <span class="btn-inner--icon"><i class="ni ni-bold-left"></i></span>
-                    
-                    <a href="{{ route('frontend.product.index')}}"><span class="btn-inner--text">Back</span></a>   
-                </button>                        
+                <button type="submit" class="btn btn-primary btn-lg">Edit Inventaris</button>
+                <a href="{{ route('frontend.product.index')}}"><span class="btn-inner--text">Back</span></a>                        
             </div>
         </form>
       </div>
@@ -64,6 +48,6 @@
 @endsection
 
 @push('footer-scripts')
-<script src="{{ asset('js/frontend/functions/select2/category.js')}}" type="text/javascript"></script>
-<script src="{{ asset('js/frontend/functions/select2/unit.js')}}" type="text/javascript"></script>
+<!-- <script src="{{ asset('js/frontend/functions/select2/category.js')}}" type="text/javascript"></script>
+<script src="{{ asset('js/frontend/functions/select2/unit.js')}}" type="text/javascript"></script> -->
 @endpush

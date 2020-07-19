@@ -46,7 +46,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                             <a class="dropdown-item" href="{{ route('frontend.product-categories.edit',[$category->id])}}">Edit</a>
-                                            <input type="hidden" name="id" id="id" value="{{ $category->id}}"> 
+                                            <input type="hidden" name="id" id="id" value="{{ $category->id}}">
                                             <a class="dropdown-item" data-toggle="modal" data-id="{{$category->id}}" data-target="#modalDelete-category">Delete</a>
                                         </div>
                                     </div>
@@ -54,14 +54,14 @@
                                 <div class="modal fade" id="modalDelete-category" tabindex="-1" role="dialog" aria-labelledby="modalDelete-category" aria-hidden="true">
                                     <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
                                         <div class="modal-content bg-gradient-danger">
-                                            
+
                                             <div class="modal-header">
                                                 <h6 class="modal-title" id="modal-title-notification">Your attention is required</h6>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">×</span>
                                                 </button>
                                             </div>
-                                            
+
                                             <div class="modal-body">
                                                 <div class="py-3 text-center">
                                                     <i class="ni ni-bell-55 ni-3x"></i>
@@ -69,7 +69,7 @@
                                                     <p>when you delete your data, you will get a lost your data</p>
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="modal-footer">
                                                 <form action="{{ route('frontend.product-categories.destroy','delete')}}" method="POST">
                                                     <input type="hidden" name="_method" value="Delete">
@@ -77,13 +77,13 @@
                                                     <input type="hidden" name="id" id="id" value="{{ $category->id}}">
                                                     <input type="submit" class="btn btn-white" value="Ok, Got it">
                                                 </form>
-                                                <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Close</button> 
+                                                <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Close</button>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
-                            </tr> 
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -125,7 +125,7 @@
                                 <td>{{ $product->name }}</td>
                                 <td>
                                     @if(isset($product->category->name))
-                                        {{ $product->category->name }}
+                                    {{ $product->category->name }}
                                     @else
                                     -
                                     @endif
@@ -137,24 +137,68 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" data-toggle="modal" data-id="{{$product->id}}" data-name="{{$product->name}}" data-target="#modalEdit-product">Edit</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-id="{{$product->id}}" data-name="{{$product->name}}" data-category="{{$product->category_id}}" data-target="#modalEdit-product">Edit</a>
                                             <a class="dropdown-item" data-toggle="modal" data-id="{{$product->id}}" data-target="#modalDelete-product">Delete</a>
-                                            <input type="hidden" name="id" id="id" value="{{$product->id}}">
+                                            <input type="" name="id" id="id" value="{{$product->id}}">
                                         </div>
-                                        @include('frontend.product.modal-edit')
+                                        <!-- @include('frontend.product.modal-edit') -->
                                     </div>
                                 </td>
+                                <div class="modal fade" id="modalEdit-product" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+                                    <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-body p-0">
+                                                <div class="card bg-secondary shadow border-0">
+                                                    <div class="card-header">
+                                                        <div class="text-center mt-2 mb-3">
+                                                            <h3><i class="ni ni-briefcase-24 text-primary"></i> Kostum </h3>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body px-lg-5 py-lg-5">
+                                                        <div class="text-center text-muted mb-4">
+                                                            <small>Please fill the box with the name of kostum</small>
+                                                        </div>
+                                                        <form action="{{ route('frontend.product.update','update')}}" method="POST">
+                                                            {{csrf_field()}}
+                                                            {{ method_field('PUT')}}
+                                                            <div class="form-group mb-3">
+                                                                <div class="input-group input-group-alternative">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><i class="ni ni-spaceship"></i></span>
+                                                                    </div>
+                                                                    <input type="" name="id" id="id">
+                                                                    <input class="form-control" placeholder="Name" id="name" name="name" type="text">
+                                                                </div>
+                                                                <div class="form-group mb-3">
+                                                                    <label class="form-control-label" for="input-first-name">Jenis Kostum</label>
+                                                                    <select id="category" class="form-control form-control-alternative" name="category_id">
+                                                                        @foreach ($productCategories as $category)
+                                                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="text-center">
+                                                                <button type="submit" class="btn btn-primary my-4">Update</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="modal fade" id="modalDelete-product" tabindex="-1" role="dialog" aria-labelledby="modalDelete-product" aria-hidden="true">
                                     <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
                                         <div class="modal-content bg-gradient-danger">
-                                            
+
                                             <div class="modal-header">
                                                 <h6 class="modal-title" id="modal-title-notification">Your attention is required</h6>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">×</span>
                                                 </button>
                                             </div>
-                                            
+
                                             <div class="modal-body">
                                                 <div class="py-3 text-center">
                                                     <i class="ni ni-bell-55 ni-3x"></i>
@@ -169,12 +213,12 @@
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <input type="submit" class="btn btn-white" value="Ok, Got it">
                                                 </form>
-                                                <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Close</button> 
+                                                <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Close</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </tr> 
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
