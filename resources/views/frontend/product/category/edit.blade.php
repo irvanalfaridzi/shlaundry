@@ -15,15 +15,15 @@
         </div>
       </div>
       <div class="card-body">
-        <form action="{{ route('frontend.product-categories.update','update')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('frontend.product-categories.update',[$productCategory->id])}}" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
             {{ method_field('PUT')}} 
             <div class="pl-lg-4">
                 <div class="row">
                     <div class="form-group">
-                            <label class="form-control-label" for="file-gambar">File Gambar</label>
-                            <input name="file" type="file" id="file-gambar" class="form-control form-control-alternative" placeholder="File Gambar">
-					    </div>
+                      <label class="form-control-label" for="file-gambar">File Gambar</label>
+                      <input name="file" type="file" id="file-gambar" class="form-control form-control-alternative" placeholder="File Gambar">
+					          </div>
                 </div>
             </div>  
             <hr class="my-4">

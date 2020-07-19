@@ -89,10 +89,30 @@ class ProductCategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         $category = ProductCategory::findOrFail($request->id);
-        $category->update($request->all());
+        
+        $this->validate($request, [
+            'file' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+
+        // menyimpan data file yang diupload ke variabel $file
+        $file = $request->file('file');
+        
+        $nama_file = time()."_".$file->getClientOriginalName();
+
+        // isi dengan nama folder tempat kemana file diupload
+		$tujuan_upload = 'data_file';
+        $file->move($tujuan_upload,$nama_file);
+
+        // $category->update($request->all());
+        $category->update([
+            'file' => $nama_file,
+            'name' => $request->name,
+            'price' => $request->price,
+            'stock' => $request->stock
+        ]);
         return redirect('product')->with('success','Data telah terkirim');
     }
 

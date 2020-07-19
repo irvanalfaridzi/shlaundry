@@ -46,7 +46,7 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                             <a class="dropdown-item" href="{{ route('frontend.product-categories.edit',[$category->id])}}">Edit</a>
-                                            <input type="hidden" name="id" id="id" value="{{ $category->id}}">
+                                            <input type="hidden" name="id" id="id" value="{{ $category->id}}"> 
                                             <a class="dropdown-item" data-toggle="modal" data-id="{{$category->id}}" data-target="#modalDelete-category">Delete</a>
                                         </div>
                                     </div>
@@ -139,7 +139,7 @@
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                             <a class="dropdown-item" data-toggle="modal" data-id="{{$product->id}}" data-name="{{$product->name}}" data-target="#modalEdit-product">Edit</a>
                                             <a class="dropdown-item" data-toggle="modal" data-id="{{$product->id}}" data-target="#modalDelete-product">Delete</a>
-                                            <input type="" name="id" id="id" value="{{$product->id}}">
+                                            <input type="hidden" name="id" id="id" value="{{$product->id}}">
                                         </div>
                                         @include('frontend.product.modal-edit')
                                     </div>

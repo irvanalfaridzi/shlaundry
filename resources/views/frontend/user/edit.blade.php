@@ -10,7 +10,7 @@
       <div class="card-header bg-white border-0">
         <div class="row align-items-center">
           <div class="col-8">
-            <h3 class="mb-0">Add User</h3>
+            <h3 class="mb-0">Edit User</h3>
           </div>
         </div>
       </div>

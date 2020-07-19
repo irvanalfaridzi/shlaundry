@@ -25,7 +25,7 @@
               <div class="text-center text-muted mb-4">
                 <img style="height:100px;width:90px" src="{{ asset('assets/argon/img/brand/Logo_ChandikAyu.jpg')}}" alt=""><br>
                 <small>
-                  Login Admin 
+                  Login 
                 </small>
               </div>
               <form role="form" method="POST" action="{{ route('login') }}">
@@ -56,7 +56,7 @@
                         <strong>{{ $errors->first('password') }}</strong>
                     </span>
                     @endif
-                </div>
+                  </div>
                 </div>
                 <div class="row">
                   <div class="col-12">

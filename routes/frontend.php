@@ -53,3 +53,20 @@ Route::name('frontend.')->group(function () {
       
     });
 });
+
+// Route::name('frontend.')->group(function () {
+//   Route::group([
+
+//     'middleware'    => ['auth','checkRole:Admin'],
+//     'namespace'     => 'Frontend'
+
+//   ], function () {
+
+//     Route::resource('employee', 'EmployeeController');
+
+//     Route::resource('user', 'UserController');
+
+//     Route::resource('role', 'RoleController');
+    
+//   });
+// });
