@@ -1,3 +1,4 @@
+
 @extends('frontend.master')
 
 @section('content-head')
@@ -364,4 +365,3 @@
             </div>
         </div>
     </div>
-@endsection

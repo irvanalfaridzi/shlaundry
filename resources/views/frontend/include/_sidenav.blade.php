@@ -116,16 +116,20 @@
                     </a>
                 </li>
                 @endif
+                @if(Auth::user()->role->name == "Admin")
                 <li class="nav-item">
                     <a class="nav-link {{ request()->is('customer*') ? 'active' : '' }}" href="{{ route('frontend.customer.index')}}">
                         <i class="ni ni-single-02 text-red"></i> Master Member
                     </a>
                 </li>
+                @endif
+                @if(Auth::user()->role->name == "Admin")
                 <li class="nav-item">
                     <a class="nav-link {{ request()->is('product*') ? 'active' : '' }}" href="{{ route('frontend.product.index')}}">
                         <i class="ni ni-app text-red"></i> Master Kostum Tari
                     </a>
                 </li>
+                @endif
                 <!-- <li class="nav-item">
                     <a class="nav-link {{ request()->is('supplier*') ? 'active' : '' }}" href="{{ route('frontend.supplier.index')}}">
                         <i class="ni ni-badge text-green"></i> Suppliers
