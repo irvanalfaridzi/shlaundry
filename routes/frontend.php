@@ -3,7 +3,7 @@
 Route::name('frontend.')->group(function () {
   Route::group([
 
-    'middleware'    => ['auth','checkRole:Admin'],
+    'middleware'    => ['auth', 'checkRole:Admin'],
     'namespace'     => 'Frontend'
 
   ], function () {
@@ -13,60 +13,41 @@ Route::name('frontend.')->group(function () {
     Route::resource('user', 'UserController');
 
     Route::resource('role', 'RoleController');
-    
   });
 });
 
 Route::name('frontend.')->group(function () {
-    Route::group([
-  
-      'middleware'    => ['auth','checkRole:Admin,Cashier,Member'],
-      'namespace'     => 'Frontend'
-  
-    ], function () {
-  
-  
-      // Dashboard
-      Route::get('/dashboard', function () {
-        return View::make('frontend.dashboard');
-      })->name('dashboard');
-  
-      Route::resource('customer', 'CustomerController');
-      
-      Route::resource('supplier', 'SupplierController');
-      
+  Route::group([
 
-      Route::namespace('Products')->group(function () {  
-        Route::resource('product', 'ProductController');
-        Route::resource('product-categories', 'ProductCategoriesController');
-      });
+    'middleware'    => ['auth', 'checkRole:Admin,Cashier,Member'],
+    'namespace'     => 'Frontend'
+
+  ], function () {
 
 
-      Route::resource('service', 'ServiceController');
+    // Dashboard
+    Route::get('/dashboard', function () {
+      return View::make('frontend.dashboard');
+    })->name('dashboard');
 
-      Route::resource('sales', 'SalesController');
+    Route::resource('customer', 'CustomerController');
 
-      Route::resource('purchase', 'PurchaseController');
+    Route::resource('supplier', 'SupplierController');
 
-      // Route::resource('appointment', 'AppointmentController');
-      
+
+    Route::namespace('Products')->group(function () {
+      Route::resource('product', 'ProductController');
+      Route::resource('product-categories', 'ProductCategoriesController');
     });
+
+
+    Route::resource('service', 'ServiceController');
+
+    Route::resource('sales', 'SalesController');
+
+    Route::resource('purchase', 'PurchaseController');
+
+    // Route::resource('appointment', 'AppointmentController');
+
+  });
 });
-
-// Route::name('frontend.')->group(function () {
-//   Route::group([
-
-//     'middleware'    => ['auth','checkRole:Member'],
-//     'namespace'     => 'Frontend'
-
-//   ], function () {
-
-//     // Dashboard
-//     Route::get('/dashboard', function () {
-//       return View::make('frontend.dashboard');
-//     })->name('dashboard');
-
-//     Route::resource('customer', 'CustomerController');
-    
-//   });
-// });
