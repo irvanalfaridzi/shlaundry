@@ -1,6 +1,5 @@
 <?php
 
-
 Route::name('frontend.')->group(function () {
   Route::group([
 
@@ -21,7 +20,7 @@ Route::name('frontend.')->group(function () {
 Route::name('frontend.')->group(function () {
     Route::group([
   
-      'middleware'    => ['auth','checkRole:Admin,Cashier'],
+      'middleware'    => ['auth','checkRole:Admin,Cashier,Member'],
       'namespace'     => 'Frontend'
   
     ], function () {
@@ -57,16 +56,17 @@ Route::name('frontend.')->group(function () {
 // Route::name('frontend.')->group(function () {
 //   Route::group([
 
-//     'middleware'    => ['auth','checkRole:Admin'],
+//     'middleware'    => ['auth','checkRole:Member'],
 //     'namespace'     => 'Frontend'
 
 //   ], function () {
 
-//     Route::resource('employee', 'EmployeeController');
+//     // Dashboard
+//     Route::get('/dashboard', function () {
+//       return View::make('frontend.dashboard');
+//     })->name('dashboard');
 
-//     Route::resource('user', 'UserController');
-
-//     Route::resource('role', 'RoleController');
+//     Route::resource('customer', 'CustomerController');
     
 //   });
 // });

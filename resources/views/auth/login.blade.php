@@ -62,6 +62,9 @@
                   <div class="col-12">
                       <button type="submit" class="btn btn-primary my-4" style="width:100%;">Masuk</button>
                   </div>
+                  <div class="col-12 text-center">
+                    <span>Belum memiliki akun? </span><a href="{{ route('register') }}">Daftar</a>
+                  </div>
                 </div>
               </form>
             </div>
