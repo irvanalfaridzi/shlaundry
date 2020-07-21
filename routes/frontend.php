@@ -19,7 +19,7 @@ Route::name('frontend.')->group(function () {
 Route::name('frontend.')->group(function () {
   Route::group([
 
-    'middleware'    => ['auth', 'checkRole:Admin,Cashier, Member'],
+    'middleware'    => ['auth', 'checkRole:Admin,Cashier,Member'],
     'namespace'     => 'Frontend'
 
   ], function () {

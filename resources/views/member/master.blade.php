@@ -1,4 +1,3 @@
-@if(Auth::user()->role->name == "Admin")
 <!DOCTYPE html>
 <html>
 
@@ -13,7 +12,7 @@
 
 <body>
   <!-- Sidenav -->
-  @include('frontend.include._sidenav')
+  @include('member.include._sidenav')
 
   <!-- Main content -->
   <div class="main-content">
@@ -37,8 +36,3 @@
 </body>
 
 </html>
-@endif
-
-@if(Auth::user()->role->name == "Member")
-@include('member.master')
-@endif

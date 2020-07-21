@@ -1,4 +1,4 @@
-
+@if(Auth::user()->role->name == "Admin")
 @extends('frontend.master')
 
 @section('content-head')
@@ -366,3 +366,8 @@
         </div>
     </div>
 @endsection
+@endif
+
+@if(Auth::user()->role->name == "Member")
+@include('member.dashboard')
+@endif
