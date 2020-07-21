@@ -139,7 +139,7 @@
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                             <a class="dropdown-item" data-toggle="modal" data-id="{{$product->id}}" data-name="{{$product->name}}" data-category="{{$product->category_id}}" data-target="#modalEdit-product">Edit</a>
                                             <a class="dropdown-item" data-toggle="modal" data-id="{{$product->id}}" data-target="#modalDelete-product">Delete</a>
-                                            <input type="" name="id" id="id" value="{{$product->id}}">
+                                            <input type="hidden" name="id" id="id" value="{{$product->id}}">
                                         </div>
                                         <!-- @include('frontend.product.modal-edit') -->
                                     </div>
@@ -166,7 +166,7 @@
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text"><i class="ni ni-spaceship"></i></span>
                                                                     </div>
-                                                                    <input type="" name="id" id="id">
+                                                                    <input type="hidden" name="id" id="id">
                                                                     <input class="form-control" placeholder="Name" id="name" name="name" type="text">
                                                                 </div>
                                                                 <div class="form-group mb-3">

@@ -19,9 +19,9 @@ class ProductController extends Controller
     {
         $products = Product::all();
         $productCategories = ProductCategory::all();
-        return view('frontend.product.index',[
-            'products'=> $products,
-            'productCategories'=> $productCategories
+        return view('frontend.product.index', [
+            'products' => $products,
+            'productCategories' => $productCategories
         ]);
     }
 
@@ -54,22 +54,22 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {       
+    {
         $productCategories = ProductCategory::find($request->category_id);
         $qty = $productCategories->stock;
         $productCategories->stock = $qty + 1;
         $productCategories->save();
 
-        Product::create( $request->all());
+        Product::create($request->all());
         // Product::create([
-		// 	'file' => $nama_file,
+        // 	'file' => $nama_file,
         //     'code' => $request->code,
         //     'name' => $request->name,
         //     'category_id' => $request->category_id,
         //     'price' => $request->price,
         //     'stock' => $request->stock
-		// ]);
-        
+        // ]);
+
         return redirect('product')->with('success', 'Data telah terkirim');
     }
 
@@ -91,16 +91,18 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {   
+    {
         $product = Product::find($id);
 
         $productCategories = ProductCategory::all();
-        
-        return view('frontend.product.modal-edit',
-        [
-            'product'=>$product,
-            'productCategories'=> $productCategories
-        ]);
+
+        return view(
+            'frontend.product.modal-edit',
+            [
+                'product' => $product,
+                'productCategories' => $productCategories
+            ]
+        );
     }
 
     /**
@@ -114,7 +116,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($request->id);
         $product->update($request->all());
-        return redirect('product')->with('success','Data telah terkirim');
+        return redirect('product')->with('success', 'Data telah terkirim');
     }
 
     /**

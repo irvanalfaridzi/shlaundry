@@ -1,7 +1,7 @@
 let Products = {
     init: function () {
-        $('#modalEdit-product').on('show.bs.modal', function (event){
-            
+        $('#modalEdit-product').on('show.bs.modal', function (event) {
+
             var button = $(event.relatedTarget);
             var name = button.data('name');
             var id = button.data('id');
@@ -15,8 +15,8 @@ let Products = {
 
         });
 
-        $('#modalDelete-category').on('show.bs.modal', function (event){
-            
+        $('#modalDelete-category').on('show.bs.modal', function (event) {
+
             var button = $(event.relatedTarget);
             var id = button.data('id');
 
@@ -26,8 +26,8 @@ let Products = {
 
         });
 
-        $('#modalDelete-product').on('show.bs.modal', function (event){
-            
+        $('#modalDelete-product').on('show.bs.modal', function (event) {
+
             var button = $(event.relatedTarget);
             var id = button.data('id');
 
@@ -41,7 +41,7 @@ let Products = {
             "scrollY": 400,
             "scrollX": true
         });
-    
+
         $('#products_table').DataTable({
             "scrollY": 400,
             "scrollX": true
